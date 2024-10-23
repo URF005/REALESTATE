@@ -177,7 +177,7 @@ export const StateContextProvider = ({ children }) => {
   //8. getHighestRatedProduct()
 
   const {
-    data: gethighestRatedProduct,
+    data: getHighestRatedProduct,
     isLoading: highestRatedProductLoading,
   } = useContractRead(contract, "gethighestRatedProduct");
 
@@ -278,7 +278,7 @@ export const StateContextProvider = ({ children }) => {
         likeReviewFunction,
         //READ PROPERTY DATA
         getPropertyData,
-        gethighestRatedProduct,
+        getHighestRatedProduct,
         getProductReviewsFunction,
         getPropertyFunction,
         getUserPropertiesFunction,

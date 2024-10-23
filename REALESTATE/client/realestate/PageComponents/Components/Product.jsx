@@ -396,6 +396,7 @@ const Product = ({ properties }) => {
                     >
                       <img src="/client/client-8.png" alt="Nft_Profile" />
                     </a>
+
                     <a
                       href="author.html"
                       class="avatar"

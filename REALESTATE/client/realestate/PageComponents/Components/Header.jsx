@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
 
 import { useStateContext } from "../../context";
 
 const Header = () => {
-  const { currentAccount, connectWallet, userBlance } = useStateContext();
+  const { address, disconnect, currentAccount, connectWallet, useBlance } =
+    useStateContext();
 
   return (
     <>
@@ -13,12 +13,12 @@ const Header = () => {
           <div class="header-inner">
             <div class="header-left">
               <div class="logo-thumbnail logo-custom-css">
-                <Link class="logo-light" href="/">
+                <a class="logo-light" href="/">
                   <img src="/logo/logo-white.png" alt="nft-logo" />
-                </Link>
-                <Link class="logo-dark" href="/">
+                </a>
+                <a class="logo-dark" href="/">
                   <img src="/logo/logo-dark.png" alt="nft-logo" />
-                </Link>
+                </a>
               </div>
               <div class="mainmenu-wrapper">
                 <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
@@ -33,9 +33,9 @@ const Header = () => {
                       <a>Explore</a>
                       <ul class="submenu">
                         <li>
-                          <Link href="/active">
+                          <a href="/active">
                             Activity<i class="feather-fast-forward"></i>
-                          </Link>
+                          </a>
                         </li>
 
                         <li>
@@ -58,9 +58,9 @@ const Header = () => {
                       <a>Other Pages</a>
                       <ul class="submenu">
                         <li>
-                          <Link href="/ranking">
+                          <a href="/ranking">
                             Ranking<i class="feather-fast-forward"></i>
-                          </Link>
+                          </a>
                         </li>
                         <li>
                           <a href="/product">
@@ -221,9 +221,9 @@ const Header = () => {
                               </div>
                               <div class="content">
                                 <h6 class="title">
-                                  <Link class="live-expo" href="/author">
+                                  <a class="live-expo" href="/author">
                                     Balance
-                                  </Link>
+                                  </a>
                                 </h6>
                                 <span class="price">
                                   {userBlance?.slice(0, 6)} MATIC
@@ -233,18 +233,18 @@ const Header = () => {
                             </li>
                             <li class="single-product-list">
                               <div class="thumbnail">
-                                <Link class="live-expo" href="/author">
+                                <a class="live-expo" href="/author">
                                   <img
                                     src="/portfolio/portfolio-01.jpg"
                                     alt="Nft Product Images"
                                   />
-                                </Link>
+                                </a>
                               </div>
                               <div class="content">
                                 <h6 class="title">
-                                  <Link class="live-expo" href="/author">
+                                  <a class="live-expo" href="/author">
                                     Profile
-                                  </Link>
+                                  </a>
                                 </h6>
                                 <span class="price">Active One</span>
                               </div>
@@ -252,18 +252,18 @@ const Header = () => {
                             </li>
                             <li class="single-product-list">
                               <div class="thumbnail">
-                                <Link class="live-expo" href="/author">
+                                <a class="live-expo" href="/author">
                                   <img
                                     src="/portfolio/portfolio-04.jpg"
                                     alt="Nft Product Images"
                                   />
-                                </Link>
+                                </a>
                               </div>
                               <div class="content">
                                 <h6 class="title">
-                                  <Link class="live-expo" href="/create">
+                                  <a class="live-expo" href="/create">
                                     Create
-                                  </Link>
+                                  </a>
                                 </h6>
                                 <span class="price">Property</span>
                               </div>
@@ -328,7 +328,7 @@ const Header = () => {
           <nav>
             <ul class="mainmenu">
               <li>
-                <a class="nav-link its_new" href="/">
+                <a class="nav-a its_new" href="/">
                   Home
                 </a>
               </li>
@@ -336,17 +336,17 @@ const Header = () => {
                 <a href="/about">About</a>
               </li>
               <li>
-                <a class="nav-link its_new" href="/explor">
+                <a class="nav-a its_new" href="/explor">
                   Explore
                 </a>
               </li>
               <li>
-                <a class="nav-link its_new" href="/">
+                <a class="nav-a its_new" href="/">
                   Pages
                 </a>
               </li>
               <li>
-                <a class="nav-link its_new" href="/blog">
+                <a class="nav-a its_new" href="/blog">
                   Blog
                 </a>
               </li>

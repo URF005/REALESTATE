@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, createContext } from "react";
+import React, { useState, useEffect, useContext, createContext } from "react";
 import {
   useAddress,
   useContract,
@@ -7,7 +7,11 @@ import {
   useContractWrite,
   useContractEvents,
   sendTransaction,
+  useConnectionStatus,
   prepareContractCall,
+  //NEW HOOKS FOR FRONTEND
+  useDisconnect,
+  useSigner,
 } from "@thirdweb-dev/react";
 import { ethers } from "ethers";
 const StateContext = createContext();
@@ -18,12 +22,18 @@ export const StateContextProvider = ({ children }) => {
   console.log(contract);
   const address = useAddress();
   const connect = useMetamask();
-  const realestate = "RealEstateChain";
+
+  //FRONTEND
+  const disconnect = useDisconnect();
+  const connectionStatus = useConnectionStatus();
+  const signer = useSigner();
+  const [userBlance, setUserBlance] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   //FUNCTION-------------
   //1.listProperty()
 
-  const { mutateAsync: listProperty, isLoading } = useContractWrite(
+  const { mutateAsync: listProperty } = useContractWrite(
     contract,
     "listProperty"
   );
@@ -55,8 +65,10 @@ export const StateContextProvider = ({ children }) => {
   };
   //2.updateProperty()
 
-  const { mutateAsync: updateProperty, isLoading: updatePropertyLoading } =
-    useContractWrite(contract, "updateProperty");
+  const { mutateAsync: updateProperty } = useContractWrite(
+    contract,
+    "updateProperty"
+  );
   const updatePropertyFunction = async (form) => {
     const {
       productId,
@@ -89,30 +101,39 @@ export const StateContextProvider = ({ children }) => {
   const { mutateAsync: updatePrice, isLoading: updatePriceLoading } =
     useContractWrite(contract, "updatePrice");
   const updatePriceFunction = async (form) => {
-    const { productId, price } = form;
+    const { productID, price } = form;
     try {
+      setIsLoading(true);
       const data = await updatePrice({
-        args: [address, productId, price],
+        args: [address, productID, ethers.utils.parseEther(price)],
       });
-      console.info("contract call success", data);
+      console.info("contract call successs", data);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error while updating price", error);
     }
   };
 
-  //4.buyProperty()
+  //4.BuyProperty()
 
-  const { mutateAsync: buyProperty, isLoading: buyPropertyLoading } =
-    useContractWrite(contract, "updatePrice");
-  const buyPropertyFunction = async (form) => {
-    const { id } = form;
+  const { mutateAsync: buyProperty } = useContractWrite(
+    contract,
+    "buyProperty"
+  );
+
+  const buyPropertyFunction = async (buying) => {
+    const { productID, amount } = buying;
+
     try {
+      setIsLoading(true);
       const data = await buyProperty({
-        args: [id, address],
+        args: [productID, address],
+        value: ethers.utils.parseEther(amount),
       });
-      console.info("Buying Successful", data);
-    } catch (error) {
-      console.error("Buying Fail", error);
+      console.info("contract call successs", data);
+      setIsLoading(false);
+    } catch (err) {
+      console.error("contract call failure", err);
     }
   };
 
@@ -120,29 +141,30 @@ export const StateContextProvider = ({ children }) => {
 
   //5.addReview()
 
-  const { mutateAsync: addReview, isLoading: addReviewLoading } =
-    useContractWrite(contract, "addReview");
-  const addReviewFunction = async (form) => {
-    const { productId, rating, comment } = form;
+  const { mutateAsync: addReview } = useContractWrite(contract, "addReview");
+  const addReviewFunction = async (from) => {
+    const { productID, rating, comment } = from;
+
     try {
+      setIsLoading(true);
       const data = await addReview({
-        args: [productId, rating, comment, address],
+        args: [productID, rating, comment, address],
       });
-      console.log("Review Added Successfully", data);
-    } catch (error) {
-      console.error("Adding review failed", error);
+      console.info("contract call successs", data);
+      setIsLoading(false);
+    } catch (err) {
+      console.error("contract call failure", err);
     }
   };
 
   //6.likeReview()
 
-  const { mutateAsync: likeReview, isLoading: likeReviewLoading } =
-    useContractWrite(contract, "likeReview");
+  const { mutateAsync: likeReview } = useContractWrite(contract, "likeReview");
   const likeReviewFunction = async (form) => {
-    const { productId, reviewIndex } = form;
+    const { productID, reviewIndex } = form;
     try {
       const data = await likeReview({
-        args: [productId, reviewIndex, address],
+        args: [productID, reviewIndex, address],
       });
       console.info("Review Liked Successfully", data);
     } catch (error) {
@@ -153,9 +175,14 @@ export const StateContextProvider = ({ children }) => {
   //GET PROPERTY DATA FUNCTION
   //7. getAllProperties()
 
-  const getPropertyData = async () => {
+  const getPropertiesData = async () => {
     try {
       const properties = await contract.call("getAllProperties");
+      const balance = await signer?.getBalance();
+      const userBalance = address
+        ? ethers.utils.formatEther(balance?.toString())
+        : "";
+      setUserBlance(userBalance);
       const parsedProperties = properties.map((property, i) => ({
         owner: property.owner,
         propertyTitle: property.propetyTitle,
@@ -176,44 +203,82 @@ export const StateContextProvider = ({ children }) => {
 
   //8. getHighestRatedProduct()
 
-  const {
-    data: getHighestRatedProduct,
-    isLoading: highestRatedProductLoading,
-  } = useContractRead(contract, "gethighestRatedProduct");
+  const { data: getHighestRatedProduct } = useContractRead(
+    contract,
+    "gethighestRatedProduct"
+  );
 
   //9. getProductReviews()
 
-  const getProductReviewsFunction = (productId) => {
+  const getProductReviewsFunction = async (productId) => {
     try {
-      const { data: getProductReviews, isLoading: getProductReviewsLoading } =
-        useContractRead(contract, "getProductReviews");
-      return getProductReviews, getProductReviewsLoading;
-    } catch (err) {
-      console.error("Error getting product reviews", err);
+      const getProductReviews = await contract.call("getProductReviews", [
+        productId,
+      ]);
+
+      const parsedReviews = getProductReviews?.map((review, i) => ({
+        reviewer: review.reviewer,
+        likes: review.likes.toNumber(),
+        comment: review.comment,
+        rating: review.rating,
+        productID: review.productId.toNumber(),
+      }));
+
+      return parsedReviews;
+    } catch (error) {
+      console.log(error);
     }
   };
 
   //10. getProperty()
 
-  const getPropertyFunction = (id) => {
+  const getPropertyFunction = async (id) => {
+    const productID = id * 1;
+
     try {
-      const { data: getProperty, isLoading: getPropertyLoading } =
-        useContractRead("getProperty", [id]);
-      return getProperty, getPropertyLoading;
+      setIsLoading(true);
+      const propertyItem = await contract.call("getProperty", [productID]);
+      const property = {
+        productID: propertyItem?.[0].toNumber(),
+        owner: propertyItem?.[1],
+        title: propertyItem?.[3],
+        category: propertyItem?.[4],
+        description: propertyItem?.[7],
+        price: ethers.utils.formatEther(propertyItem?.[2].toString()),
+        address: propertyItem?.[6],
+        image: propertyItem?.[5],
+      };
+      setIsLoading(false);
+      return property;
     } catch (error) {
-      console.error("Error getting property", error);
+      console.log(error);
     }
   };
 
   //11.getUserProperties()
 
-  const getUserPropertiesFunction = () => {
+  const getUserPropertiesFunction = async () => {
     try {
-      const { data: getUserProperties, isLoading: getUserPropertiesLoading } =
-        useContractRead("getUserProperties", [address]);
-      return getUserProperties, getUserPropertiesLoading;
+      setIsLoading(true);
+      const properties = await contract.call("getUserProperties", [address]);
+
+      const parsedProperties = properties.map((property, i) => ({
+        owner: property.owner,
+        title: property.propertyTitle,
+        description: property.description,
+        category: property.category,
+        price: ethers.utils.formatEther(property.price.toString()),
+        productID: property.productID.toNumber(),
+        reviewers: property.reviewers,
+        reviews: property.reviews,
+        image: property.images,
+        address: property.propertyAddress,
+      }));
+
+      setIsLoading(false);
+      return parsedProperties;
     } catch (error) {
-      console.error("Error getting user properties", error);
+      console.log(error);
     }
   };
 
@@ -221,34 +286,40 @@ export const StateContextProvider = ({ children }) => {
 
   const getUserReviewsFunction = () => {
     try {
-      const { data: getUserReviews, isLoading: getUserReviewsLoading } =
-        useContractRead("getUserReviews", [address]);
-      return getUserReviews, getUserReviewsLoading;
-    } catch (error) {
-      console.error("Error getting user reviews", error);
-    }
+      setIsLoading(true);
+      const { data: getUserReviews } = useContractRead(
+        contract,
+        "getUserReviews",
+        [address]
+      );
+
+      setIsLoading(false);
+      return getUserReviews;
+    } catch (error) {}
   };
 
   //13.totalProperty()
 
-  const totalPropertyFunction = () => {
+  const totalPropertyFunction = async () => {
     try {
-      const { data: totalProperty, isLoading: totalPropertyLoading } =
-        useContractRead(contract, "propertyIndex");
-      return totalProperty, totalPropertyLoading;
+      setIsLoading(true);
+      const totalProperty = await contract.call("propertyIndex");
+      setIsLoading(false);
+      return totalProperty;
     } catch (error) {
-      console.error("Error getting total properties", error);
+      console.log(error);
     }
   };
 
   //14.totalReviews()
-  const totalReviewsFunction = () => {
+  const totalReviewsFunction = async () => {
     try {
-      const { data: totalReviews, isLoading: totalReviewsLoading } =
-        useContractWrite(contract, "reviewsCounter");
-      return totalReviews, totalReviewsLoading;
+      setIsLoading(true);
+      const totalReviews = await contract.call("reviewsCounter");
+      setIsLoading(false);
+      return totalReviews.toNumber();
     } catch (error) {
-      console.error("Error getting total reviews", error);
+      console.log(error);
     }
   };
 
@@ -266,25 +337,29 @@ export const StateContextProvider = ({ children }) => {
   return (
     <StateContext.Provider
       value={{
-        contract,
         address,
+        contract,
         connect,
-        realestate,
         createPropertyFunction,
         updatePropertyFunction,
         updatePriceFunction,
         buyPropertyFunction,
+        //REVIEW
         addReviewFunction,
         likeReviewFunction,
-        //READ PROPERTY DATA
-        getPropertyData,
-        getHighestRatedProduct,
         getProductReviewsFunction,
         getPropertyFunction,
         getUserPropertiesFunction,
         getUserReviewsFunction,
         totalPropertyFunction,
         totalReviewsFunction,
+        getHighestRatedProduct,
+        //CONTRACT DATA
+        getPropertiesData,
+        userBlance,
+        isLoading,
+        //FRENT_END
+        disconnect,
       }}
     >
       {children}

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 
 import { useStateContext } from "../../context";
 
 const Header = () => {
-  const { address, disconnect, currentAccount, connectWallet, useBlance } =
-    useStateContext();
+  const { address, disconnect, connect, userBlance } = useStateContext();
 
   return (
     <>
@@ -13,12 +13,12 @@ const Header = () => {
           <div class="header-inner">
             <div class="header-left">
               <div class="logo-thumbnail logo-custom-css">
-                <a class="logo-light" href="/">
+                <Link class="logo-light" href="/">
                   <img src="/logo/logo-white.png" alt="nft-logo" />
-                </a>
-                <a class="logo-dark" href="/">
+                </Link>
+                <Link class="logo-dark" href="/">
                   <img src="/logo/logo-dark.png" alt="nft-logo" />
-                </a>
+                </Link>
               </div>
               <div class="mainmenu-wrapper">
                 <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
@@ -27,103 +27,42 @@ const Header = () => {
                       <a href="/">Home</a>
                     </li>
                     <li>
-                      <a href="/about">About</a>
+                      <Link href="/about">About</Link>
                     </li>
                     <li>
-                      <a>Explore</a>
+                      <a href="/explore">Explore</a>
                       <ul class="submenu">
                         <li>
-                          <a href="/active">
+                          <Link href="/active">
                             Activity<i class="feather-fast-forward"></i>
-                          </a>
+                          </Link>
                         </li>
-
                         <li>
-                          <a href="/creator">
+                          <Link href="/author">
+                            Author<i class="feather-fast-forward"></i>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/create">
+                            Create
+                            <i class="feather-fast-forward"></i>
+                          </Link>
+                        </li>
+                        <li>
+                          <Link href="/creator">
                             Creator
                             <i class="feather-fast-forward"></i>
-                          </a>
+                          </Link>
                         </li>
                         <li>
-                          <a class="live-expo" href="/explor">
+                          <Link class="live-expo" href="/explor">
                             Explore
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <a href="/contact">Contact</a>
-                    </li>
-                    <li>
-                      <a>Other Pages</a>
-                      <ul class="submenu">
-                        <li>
-                          <a href="/ranking">
-                            Ranking<i class="feather-fast-forward"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="/product">
-                            Product
-                            <i class="feather-fast-forward"></i>
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/privacy">
-                            Privacy
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/news">
-                            News
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/fourm">
-                            Fourm
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/connect">
-                            Connect
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/collection">
-                            Collection
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/blog">
-                            Blog
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/blogdetail">
-                            Blogdetail
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/error">
-                            404
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/forget">
-                            Forget
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/login">
-                            Login
-                          </a>
-                        </li>
-                        <li>
-                          <a class="live-expo" href="/signup">
-                            Signup
-                          </a>
-                        </li>
-                      </ul>
+                      <Link href="/contact">Contact</Link>
                     </li>
                   </ul>
                 </nav>
@@ -150,7 +89,12 @@ const Header = () => {
                     <i class="feather-search"></i>
                   </button>
                 </div>
-                <form id="header-search-1" class="large-mobile-blog-search">
+                <form
+                  id="header-search-1"
+                  action="#"
+                  method="GET"
+                  class="large-mobile-blog-search"
+                >
                   <div class="rn-search-mobile form-group">
                     <button type="submit" class="search-button">
                       <i class="feather-search"></i>
@@ -162,7 +106,7 @@ const Header = () => {
 
               {/* //CONNECT WALLET */}
 
-              {currentAccount ? (
+              {address ? (
                 ""
               ) : (
                 <div
@@ -171,7 +115,7 @@ const Header = () => {
                 >
                   <div class="icon-box">
                     <button
-                      onClick={() => connectWallet()}
+                      onClick={() => connect()}
                       class="btn btn-primary-alta btn-small"
                     >
                       Wallet connect
@@ -183,25 +127,25 @@ const Header = () => {
               {/* //END CONNECT WALLET */}
               <div class="setting-option rn-icon-list notification-badge">
                 <div class="icon-box">
-                  <a href={`/active`}>
+                  <a href="/activity">
                     <i class="feather-bell"></i>
                     <span class="badge">6</span>
                   </a>
                 </div>
               </div>
 
-              {currentAccount ? (
+              {address ? (
                 <div>
                   <div class="setting-option rn-icon-list user-account">
                     <div class="icon-box">
-                      <a>
+                      <a href="/author">
                         <img src="/icons/boy-avater.png" alt="Images" />
                       </a>
                       <div class="rn-dropdown">
                         <div class="rn-inner-top">
                           <h4 class="title">
-                            <a href="/author">
-                              {currentAccount.slice(0, 15)}...
+                            <a href="product-details.html">
+                              {address.slice(0, 15)}...
                             </a>
                           </h4>
                           <span>
@@ -221,51 +165,11 @@ const Header = () => {
                               </div>
                               <div class="content">
                                 <h6 class="title">
-                                  <a class="live-expo" href="/author">
-                                    Balance
-                                  </a>
+                                  <a href="product-details.html">Balance</a>
                                 </h6>
                                 <span class="price">
                                   {userBlance?.slice(0, 6)} MATIC
                                 </span>
-                              </div>
-                              <div class="button"></div>
-                            </li>
-                            <li class="single-product-list">
-                              <div class="thumbnail">
-                                <a class="live-expo" href="/author">
-                                  <img
-                                    src="/portfolio/portfolio-01.jpg"
-                                    alt="Nft Product Images"
-                                  />
-                                </a>
-                              </div>
-                              <div class="content">
-                                <h6 class="title">
-                                  <a class="live-expo" href="/author">
-                                    Profile
-                                  </a>
-                                </h6>
-                                <span class="price">Active One</span>
-                              </div>
-                              <div class="button"></div>
-                            </li>
-                            <li class="single-product-list">
-                              <div class="thumbnail">
-                                <a class="live-expo" href="/author">
-                                  <img
-                                    src="/portfolio/portfolio-04.jpg"
-                                    alt="Nft Product Images"
-                                  />
-                                </a>
-                              </div>
-                              <div class="content">
-                                <h6 class="title">
-                                  <a class="live-expo" href="/create">
-                                    Create
-                                  </a>
-                                </h6>
-                                <span class="price">Property</span>
                               </div>
                               <div class="button"></div>
                             </li>
@@ -285,6 +189,11 @@ const Header = () => {
                           </li>
                           <li>
                             <a href="/connect">Manage funds</a>
+                          </li>
+                          <li>
+                            <a href="#" onClick={() => disconnect()}>
+                              Disconnect
+                            </a>
                           </li>
                         </ul>
                       </div>
@@ -328,7 +237,7 @@ const Header = () => {
           <nav>
             <ul class="mainmenu">
               <li>
-                <a class="nav-a its_new" href="/">
+                <a class="nav-link its_new" href="/">
                   Home
                 </a>
               </li>
@@ -336,17 +245,17 @@ const Header = () => {
                 <a href="/about">About</a>
               </li>
               <li>
-                <a class="nav-a its_new" href="/explor">
+                <a class="nav-link its_new" href="/explor">
                   Explore
                 </a>
               </li>
               <li>
-                <a class="nav-a its_new" href="/">
+                <a class="nav-link its_new" href="/">
                   Pages
                 </a>
               </li>
               <li>
-                <a class="nav-a its_new" href="/blog">
+                <a class="nav-link its_new" href="/blog">
                   Blog
                 </a>
               </li>

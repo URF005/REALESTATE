@@ -1,5 +1,4 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Header,
   Banner,
@@ -13,17 +12,17 @@ import {
 } from "../PageComponents/Components";
 import { useStateContext } from "../context";
 import { getTopCreators } from "../utils";
-import contact from "./contact";
-const index = () => {
+
+const Index = () => {
   // STATE VARIABLES
   const [isLoading, setIsLoading] = useState(false);
   const [properties, setProperties] = useState([]);
   const { address, contract, getPropertiesData } = useStateContext();
-  //GET DATA
+
+  // GET DATA
   const fetchProperty = async () => {
     setIsLoading(true);
     const data = await getPropertiesData();
-
     setProperties(data);
     setIsLoading(false);
   };
@@ -32,8 +31,9 @@ const index = () => {
     if (contract) {
       fetchProperty();
     }
-  }, [address, contact]);
-  //CATEGORIES
+  }, [contract]); // Updated dependency to [contract]
+
+  // CATEGORIES
   const housing = [];
   const rental = [];
   const farmhouse = [];
@@ -42,28 +42,38 @@ const index = () => {
   const country = [];
 
   if (!isLoading) {
-    properties?.map((el) => {
-      if (el.category === "country") {
-        country.push(el);
-      } else if (el.category === "Commercial") {
-        commercial.push(el);
-      } else if (el.category === "Office") {
-        office.push(el);
-      } else if (el.category === "Farmhouse") {
-        farmhouse.push(el);
-      } else if (el.category === "Rental") {
-        rental.push(el);
-      } else if (el.category === "Housing") {
-        housing.push(el);
+    properties?.forEach((el) => {
+      switch (el.category) {
+        case "country":
+          country.push(el);
+          break;
+        case "Commercial":
+          commercial.push(el);
+          break;
+        case "Office":
+          office.push(el);
+          break;
+        case "Farmhouse":
+          farmhouse.push(el);
+          break;
+        case "Rental":
+          rental.push(el);
+          break;
+        case "Housing":
+          housing.push(el);
+          break;
+        default:
+          break;
       }
     });
   }
+
   const creators = getTopCreators(properties);
+
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <Banner />
-
       <Live properties={properties} />
       <Service />
       <Product properties={properties} />
@@ -80,4 +90,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

@@ -21,7 +21,7 @@ const Live = ({ properties }) => {
         </div>
         <div class="row g-5">
           {properties
-            ?.map((property, i) => (
+            .map((property, i) => (
               <div
                 class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
                 data-sal-delay="150"

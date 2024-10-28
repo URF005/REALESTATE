@@ -35,8 +35,8 @@ const Live = ({ properties }) => {
                   data-sal-delay="150"
                 >
                   <div class="card-thumbnail">
-                    <a href={`/detail?property=${property.productID}`}>
-                      <img src={property.image} alt="NFT_portfolio" />
+                    <a href={`/detail?property=${property.productId}`}>
+                      <img src={property.images} alt={property.propertyTitle} />
                     </a>
                   </div>
                   <div class="product-share-wrapper">
@@ -58,9 +58,9 @@ const Live = ({ properties }) => {
                   </div>
                   <a href="#">
                     <span class="product-name">
-                      {property.title.length >= 25
-                        ? `${property.title.slice(0, 22)}...`
-                        : property.title}
+                      {property.propertyTitle.length >= 25
+                        ? `${property.propertyTitle.slice(0, 22)}...`
+                        : property.propertyTitle}
                     </span>
                   </a>
                   <span class="latest-bid">Category: {property.category}</span>
@@ -86,7 +86,7 @@ const Live = ({ properties }) => {
                 </div>
               </div>
             ))
-            .slice(0, 5)}
+            .slice(0, 6)}
         </div>
       </div>
     </div>

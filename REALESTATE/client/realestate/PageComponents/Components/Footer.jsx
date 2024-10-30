@@ -2,139 +2,138 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div class="rn-footer-one rn-section-gap bg-color--1 mt--100 mt_md--80 mt_sm--80">
-      <div class="container">
-        <div class="row gx-5">
-          <div class="col-lg-3 col-md-6 col-sm-6 col-12">
-            <div class="widget-content-wrapper">
-              <div class="footer-left">
-                <div class="logo-thumbnail logo-custom-css">
-                  <a class="logo-light" href="index.html">
-                    <img src="/logo/logo-white.png" alt="nft-logo" />
+    <div className="rn-footer-one rn-section-gap bg-color--1 mt--100 mt_md--80 mt_sm--80">
+      <div className="container">
+        <div className="row gx-5">
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div className="widget-content-wrapper">
+              <div className="footer-left">
+                <div className="logo-thumbnail logo-custom-css">
+                  <a className="logo-light" href="index.html">
+                    <img src="/logo/logo-white.png" alt="real-estate-logo" />
                   </a>
-                  <a class="logo-dark" href="index.html">
-                    <img src="/logo/logo-dark.png" alt="nft-logo" />
+                  <a className="logo-dark" href="index.html">
+                    <img src="/logo/logo-dark.png" alt="real-estate-logo" />
                   </a>
                 </div>
-                <p class="rn-footer-describe">
-                  Created with the collaboration of over 60 of the world's best
-                  Qreal Artists.
+                <p className="rn-footer-describe">
+                  Built to revolutionize property transactions across Pakistan, ensuring trust and transparency with blockchain technology.
                 </p>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt_mobile--40">
-            <div class="footer-widget widget-quicklink">
-              <h6 class="widget-title">Qreal</h6>
-              <ul class="footer-list-one">
-                <li class="single-list">
-                  <a href="#">Protocol Explore</a>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_mobile--40">
+            <div className="footer-widget widget-quicklink">
+              <h6 className="widget-title">Quick Links</h6>
+              <ul className="footer-list-one">
+                <li className="single-list">
+                  <a href="#">Explore Listings</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">System Token</a>
+                <li className="single-list">
+                  <a href="#">Blockchain Security</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">Otimize Time</a>
+                <li className="single-list">
+                  <a href="#">Efficient Transactions</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">Visual Checking</a>
+                <li className="single-list">
+                  <a href="#">Legal Support</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">Fadeup System</a>
+                <li className="single-list">
+                  <a href="#">Transparency Tools</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">Activity Log</a>
+                <li className="single-list">
+                  <a href="#">Transaction History</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">System Auto Since</a>
+                <li className="single-list">
+                  <a href="#">Auto-Sync Records</a>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--40 mt_sm--40">
-            <div class="footer-widget widget-information">
-              <h6 class="widget-title">Information</h6>
-              <ul class="footer-list-one">
-                <li class="single-list">
-                  <a href="#">Market Explore</a>
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--40 mt_sm--40">
+            <div className="footer-widget widget-information">
+              <h6 className="widget-title">Information</h6>
+              <ul className="footer-list-one">
+                <li className="single-list">
+                  <a href="#">Market Insights</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">Ready Token</a>
+                <li className="single-list">
+                  <a href="#">Tokenize Property</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">Main Option</a>
+                <li className="single-list">
+                  <a href="#">Key Resources</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">Product Checking</a>
+                <li className="single-list">
+                  <a href="#">Buyer Protection</a>
                 </li>
-                <li class="single-list">
-                  <a href="blog.html">Blog Grid</a>
+                <li className="single-list">
+                  <a href="blog.html">Blog Updates</a>
                 </li>
-                <li class="single-list">
+                <li className="single-list">
                   <a href="about.html">About Us</a>
                 </li>
-                <li class="single-list">
-                  <a href="#">Fix Bug </a>
+                <li className="single-list">
+                  <a href="#">Issue Resolution</a>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--40 mt_sm--40">
-            <div class="footer-widget">
-              <h6 class="widget-title">Recent Sold Out</h6>
-              <ul class="footer-recent-post">
-                <li class="recent-post">
-                  <div class="thumbnail">
-                    <a href="product-details.html">
+          <div className="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--40 mt_sm--40">
+            <div className="footer-widget">
+              <h6 className="widget-title">Recently Sold</h6>
+              <ul className="footer-recent-post">
+                <li className="recent-post">
+                  <div className="thumbnail">
+                    <a href="property-details.html">
                       <img
                         src="/portfolio/portfolio-01.jpg"
-                        alt="Product Images"
+                        alt="Property Images"
                       />
                     </a>
                   </div>
-                  <div class="content">
-                    <h6 class="title">
-                      <a href="product-details.html">#21 The Wonder</a>
+                  <div className="content">
+                    <h6 className="title">
+                      <a href="property-details.html">#12 Gulberg Villa</a>
                     </h6>
-                    <p>Highest bid 1/20</p>
-                    <span class="price">0.244wETH</span>
+                    <p>Highest offer 1/15</p>
+                    <span className="price">PKR 15M</span>
                   </div>
                 </li>
-                <li class="recent-post">
-                  <div class="thumbnail">
-                    <a href="product-details.html">
-                      <img
-                        src="/portfolio/portfolio-02.jpg"
-                        alt="Product Images"
-                      />
-                    </a>
-                  </div>
-                  <div class="content">
-                    <h6 class="title">
-                      <a href="product-details.html">Diamond Dog</a>
-                    </h6>
-                    <p>Highest bid 1/20</p>
-                    <span class="price">0.022wETH</span>
-                  </div>
-                </li>
-                <li class="recent-post">
-                  <div class="thumbnail">
-                    <a href="product-details.html">
+                <li className="recent-post">
+                  <div className="thumbnail">
+                    <a href="property-details.html">
                       <img
                         src="/portfolio/portfolio-03.jpg"
-                        alt="Product Images"
+                        alt="Property Images"
                       />
                     </a>
                   </div>
-                  <div class="content">
-                    <h6 class="title">
-                      <a href="product-details.html">Morgan11</a>
+                  <div className="content">
+                    <h6 className="title">
+                      <a href="property-details.html">Clifton Heights</a>
                     </h6>
-                    <p>Highest bid 1/20</p>
-                    <span class="price">0.892wETH</span>
+                    <p>Highest offer 1/10</p>
+                    <span className="price">PKR 8M</span>
+                  </div>
+                </li>
+                <li className="recent-post">
+                  <div className="thumbnail">
+                    <a href="property-details.html">
+                      <img
+                        src="/portfolio/portfolio-02.jpg"
+                        alt="Property Images"
+                      />
+                    </a>
+                  </div>
+                  <div className="content">
+                    <h6 className="title">
+                      <a href="property-details.html">DHA Phase 5</a>
+                    </h6>
+                    <p>Highest offer 1/25</p>
+                    <span className="price">PKR 20M</span>
                   </div>
                 </li>
               </ul>

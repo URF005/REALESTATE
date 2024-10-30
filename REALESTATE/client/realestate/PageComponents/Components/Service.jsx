@@ -12,7 +12,7 @@ const Service = () => {
               data-sal=""
               data-sal-duration="800"
             >
-              Create and sell your NFTs
+              Register and Trade Real Estate on Blockchain
             </h3>
           </div>
         </div>
@@ -31,11 +31,11 @@ const Service = () => {
                 <div class="subtitle">Step-01</div>
                 <div class="content">
                   <h4 class="title">
-                    <a href="#">Set up your wallet</a>
+                    <a href="#">Create Your Blockchain Wallet</a>
                   </h4>
                   <p class="description">
-                    Powerful features and inclusions, which makes Qreal
-                    standout, easily customizable and scalable.
+                    Set up your secure digital wallet to start registering and
+                    trading properties seamlessly on the blockchain.
                   </p>
                   <a class="read-more-button" href="#">
                     <i class="feather-arrow-right"></i>
@@ -60,11 +60,11 @@ const Service = () => {
                 <div class="subtitle">Step-02</div>
                 <div class="content">
                   <h4 class="title">
-                    <a href="#">Create your collection</a>
+                    <a href="#">Register Your Property</a>
                   </h4>
                   <p class="description">
-                    A great collection of beautiful website templates for your
-                    need. Choose the best suitable template.
+                    Input essential details of your real estate to create a
+                    verifiable digital record on the blockchain.
                   </p>
                   <a class="read-more-button" href="#">
                     <i class="feather-arrow-right"></i>
@@ -89,11 +89,11 @@ const Service = () => {
                 <div class="subtitle">Step-03</div>
                 <div class="content">
                   <h4 class="title">
-                    <a href="#">Add your NFT's</a>
+                    <a href="#">List Property for Sale</a>
                   </h4>
                   <p class="description">
-                    We've made the template fully responsive, so it looks great
-                    on all devices: desktop, tablets and.
+                    Showcase your property to potential buyers with
+                    blockchain-based verification for seamless transactions.
                   </p>
                   <a class="read-more-button" href="#">
                     <i class="feather-arrow-right"></i>
@@ -118,11 +118,11 @@ const Service = () => {
                 <div class="subtitle">Step-04</div>
                 <div class="content">
                   <h4 class="title">
-                    <a href="#">Sell Your NFT's</a>
+                    <a href="#">Finalize Your Sale</a>
                   </h4>
                   <p class="description">
-                    I throw myself down among the tall grass by the stream as I
-                    lie close to the earth NFT's.
+                    Close deals with transparency and security through
+                    blockchain, ensuring trust for both buyers and sellers.
                   </p>
                   <a class="read-more-button" href="#">
                     <i class="feather-arrow-right"></i>

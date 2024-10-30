@@ -34,8 +34,8 @@ const Index = () => {
   }, [contract]); // Updated dependency to [contract]
 
   // CATEGORIES
-  const housing = [];
-  const rental = [];
+  const House = [];
+  const Apartment = [];
   const farmhouse = [];
   const office = [];
   const commercial = [];
@@ -56,11 +56,11 @@ const Index = () => {
         case "Farmhouse":
           farmhouse.push(el);
           break;
-        case "Rental":
-          rental.push(el);
+        case "Apartment":
+          Apartment.push(el);
           break;
-        case "Housing":
-          housing.push(el);
+        case "House":
+          House.push(el);
           break;
         default:
           break;
@@ -79,8 +79,8 @@ const Index = () => {
       <Product properties={properties} />
       <TopSeller creators={creators} />
       <Collection
-        housing={housing?.length}
-        rental={rental?.length}
+        House={House?.length}
+        Apartment={Apartment?.length}
         farmhouse={farmhouse?.length}
         office={office?.length}
       />

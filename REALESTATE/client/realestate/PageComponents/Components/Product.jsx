@@ -47,10 +47,10 @@ const Product = ({ properties }) => {
                 <span className="filter-text">Office</span>
               </button>
               <button
-                className={selectedCategory === "Rental" ? "is-checked" : ""}
-                onClick={() => handleFilter("Rental")}
+                className={selectedCategory === "Apartment" ? "is-checked" : ""}
+                onClick={() => handleFilter("Apartment")}
               >
-                <span className="filter-text">Rental</span>
+                <span className="filter-text">Apartment</span>
               </button>
               <button
                 className={selectedCategory === "Farmhouse" ? "is-checked" : ""}

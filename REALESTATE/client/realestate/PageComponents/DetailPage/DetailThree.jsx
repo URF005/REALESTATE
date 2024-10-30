@@ -30,7 +30,7 @@ const DetailThree = ({ properties }) => {
                 <div class="product-style-one no-overlay">
                   <div class="card-thumbnail">
                     <a>
-                      <img src={property.image} alt="NFT_portfolio" />
+                      <img src={property.images} alt="NFT_portfolio" />
                     </a>
                   </div>
                   <div class="product-share-wrapper">
@@ -52,9 +52,9 @@ const DetailThree = ({ properties }) => {
                   </div>
                   <a href="#">
                     <span class="product-name">
-                      {property.title.length >= 25
-                        ? `${property.title.slice(0, 22)}...`
-                        : property.title}
+                      {property.propertyTitle.length >= 25
+                        ? `${property.propertyTitle.slice(0, 5)}...`
+                        : property.propertyTitle}
                     </span>
                   </a>
                   <span class="latest-bid">Category: {property.category}</span>

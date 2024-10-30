@@ -91,7 +91,7 @@ const DetailTwo = ({
                       {isLoading ? (
                         <Loader />
                       ) : (
-                        <img src={property?.image} alt="Nft_Profile" />
+                        <img src={property?.images} alt="Nft_Profile" />
                       )}
                     </div>
                   </div>
@@ -129,7 +129,7 @@ const DetailTwo = ({
           <div class="col-lg-5 col-md-12 col-sm-12 mt_md--50 mt_sm--60">
             <div class="rn-pd-content-area">
               <div class="pd-title-area">
-                <h4 class="title">{property?.title?.slice(0, 25)}..</h4>
+                <h4 class="title">{property?.propertyTitle?.slice(0, 25)}..</h4>
                 <div class="pd-react-area">
                   <div class="heart-count">
                     <span>{parsedReviews?.length}</span>
@@ -167,7 +167,7 @@ const DetailTwo = ({
                         >
                           Share
                         </button>
-                        {property?.owner.toLowerCase() == address && (
+                        {property?.owner == address && (
                           <button
                             type="button"
                             class="btn-setting-text report-text"

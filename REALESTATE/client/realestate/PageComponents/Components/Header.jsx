@@ -148,9 +148,6 @@ const Header = () => {
                               {address.slice(0, 15)}...
                             </a>
                           </h4>
-                          <span>
-                            <a href="#">Set Display Name</a>
-                          </span>
                         </div>
                         <div class="rn-product-inner">
                           <ul class="product-list">

@@ -1,12 +1,12 @@
 import React from "react";
 import Link from "next/link";
 
-const Collection = ({ housing, rental, farmhouse, office }) => {
+const Collection = ({ House, Apartment, farmhouse, office }) => {
   const topCollection = [
     {
-      name: "Housing",
-      link: "/housing",
-      item: housing,
+      name: "House",
+      link: "/House",
+      item: House,
     },
     {
       name: "Office",
@@ -19,9 +19,9 @@ const Collection = ({ housing, rental, farmhouse, office }) => {
       item: farmhouse,
     },
     {
-      name: "Rental",
-      link: "/rental",
-      item: rental,
+      name: "Apartment",
+      link: "/Apartment",
+      item: Apartment,
     },
   ];
   return (

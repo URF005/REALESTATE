@@ -30,7 +30,6 @@ const detail = () => {
     contract,
     addReviewFunction,
     getProductReviewsFunction,
-    likeReviewFunction,
     buyPropertyFunction,
     getPropertyFunction,
     getPropertiesData,
@@ -71,18 +70,6 @@ const detail = () => {
     setCommentLoading(false);
   };
 
-  //LIKE REVIEW
-  const [likeReviews, setLikeReviews] = useState({
-    productID: "",
-    reviewIndex: "",
-  });
-  const likeReviewCall = async () => {
-    const data = await likeReviewFunction({
-      ...likeReviews,
-      productID: property.productID,
-    });
-    window.location.reload();
-  };
   //BUY PROPERTY
   const buying = {
     productID: property?.productID,
@@ -115,8 +102,6 @@ const detail = () => {
       <DetailTwo
         property={property}
         parsedReviews={parsedReviews}
-        setLikeReviews={setLikeReviews}
-        likeReviewCall={likeReviewCall}
         buyingProperty={buyingProperty}
         address={address}
         isLoading={isLoading}

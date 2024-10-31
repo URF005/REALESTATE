@@ -4,9 +4,6 @@ import { Loader } from "../../PageComponents/Components";
 const DetailTwo = ({
   property,
   parsedReviews,
-  setLikeReviews,
-  likeReviews,
-  likeReviewCall,
   buyingProperty,
   address,
   isLoading,
@@ -264,13 +261,7 @@ const DetailTwo = ({
                       aria-labelledby="nav-home-tab"
                     >
                       {parsedReviews?.map((review, i) => (
-                        <div
-                          onClick={(e) =>
-                            likeReviewCall(property, review.reviewIndex)
-                          }
-                          key={i + 1}
-                          class="top-seller-inner-one"
-                        >
+                        <div key={i + 1} class="top-seller-inner-one">
                           <div class="top-seller-wrapper">
                             <div class="thumbnail">
                               <a href="#">
@@ -282,26 +273,7 @@ const DetailTwo = ({
                             </div>
                             <div class="top-seller-content">
                               <span>{review?.reviewer.slice(0, 35)}... </span>
-                              <div class="react-area">
-                                <svg
-                                  onClick={() => likeReviewCall()}
-                                  viewBox="0 0 17 16"
-                                  fill="none"
-                                  width="16"
-                                  height="16"
-                                  class="sc-bdnxRM sc-hKFxyN kBvkOu"
-                                >
-                                  <path
-                                    d="M8.2112 14L12.1056 9.69231L14.1853 7.39185C15.2497 6.21455 15.3683 4.46116 14.4723 3.15121V3.15121C13.3207 1.46757 10.9637 1.15351 9.41139 2.47685L8.2112 3.5L6.95566 2.42966C5.40738 1.10976 3.06841 1.3603 1.83482 2.97819V2.97819C0.777858 4.36443 0.885104 6.31329 2.08779 7.57518L8.2112 14Z"
-                                    stroke="currentColor"
-                                    stroke-width="2"
-                                  ></path>
-                                </svg>
-                                <span class="number">
-                                  <strong>{review?.likes} </strong> (
-                                  {i + 1 + 0.5} hours ago)
-                                </span>
-                              </div>
+
                               <span class="count-number">
                                 {review?.comment.slice(0, 70)}
                                 {review?.comment.length >= 93 ? "..." : ""}
@@ -418,14 +390,18 @@ const DetailTwo = ({
                 </div>
                 <div class="place-bet-area">
                   <div class="rn-bet-create">
-                    <div class="bid-list winning-bid">
-                      <h6 class="title">Recent Comment</h6>
+                    {" "}
+                    <div className="bid-list winning-bid">
+                      <h6 className="title">Recent Comments</h6>
                       {parsedReviews
                         ?.reverse()
+                        .slice(0, 2) // Change this to display the number of recent comments you want
                         .map((recentReview, i) => (
-                          <div class="top-seller-inner-one">
-                            <div class="top-seller-wrapper">
-                              <div class="thumbnail">
+                          <div className="top-seller-inner-one" key={i}>
+                            {" "}
+                            {/* Add a key for each item */}
+                            <div className="top-seller-wrapper">
+                              <div className="thumbnail">
                                 <a href="#">
                                   <img
                                     src="/client/client-7.png"
@@ -433,12 +409,11 @@ const DetailTwo = ({
                                   />
                                 </a>
                               </div>
-                              <div class="top-seller-content">
-                                <span class="heighest-bid">
+                              <div className="top-seller-content">
+                                <span className="heighest-bid">
                                   {recentReview?.reviewer.slice(0, 20)}...
                                 </span>
-                                <span class="count-number">
-                                  {" "}
+                                <span className="count-number">
                                   {recentReview?.comment.length >= 50
                                     ? `${recentReview?.comment.slice(0, 60)}...`
                                     : recentReview?.comment}
@@ -446,8 +421,7 @@ const DetailTwo = ({
                               </div>
                             </div>
                           </div>
-                        ))
-                        .slice(0, 1)}
+                        ))}
                     </div>
                     <div class="bid-list left-bid">
                       <h6 class="title">Property Stats</h6>

@@ -38,10 +38,7 @@ const DetailTwo = ({
                     aria-selected="true"
                   >
                     <span class="rn-pd-sm-thumbnail">
-                      <img
-                        src="/portfolio/portfolio-01.jpg"
-                        alt="Nft_Profile"
-                      />
+                      <img src={property?.image} alt="Nft_Profile" />
                     </span>
                   </button>
                   <button
@@ -55,10 +52,7 @@ const DetailTwo = ({
                     aria-selected="false"
                   >
                     <span class="rn-pd-sm-thumbnail">
-                      <img
-                        src="/portfolio/portfolio-02.jpg"
-                        alt="Nft_Profile"
-                      />
+                      <img src={property?.image} alt="Nft_Profile" />
                     </span>
                   </button>
                   <button
@@ -72,10 +66,7 @@ const DetailTwo = ({
                     aria-selected="false"
                   >
                     <span class="rn-pd-sm-thumbnail">
-                      <img
-                        src="/portfolio/portfolio-03.jpg"
-                        alt="Nft_Profile"
-                      />
+                      <img src={property?.image} alt="Nft_Profile" />
                     </span>
                   </button>
                 </div>
@@ -91,7 +82,7 @@ const DetailTwo = ({
                       {isLoading ? (
                         <Loader />
                       ) : (
-                        <img src={property?.images} alt="Nft_Profile" />
+                        <img src={property?.image} alt="Nft_Profile" />
                       )}
                     </div>
                   </div>
@@ -129,7 +120,7 @@ const DetailTwo = ({
           <div class="col-lg-5 col-md-12 col-sm-12 mt_md--50 mt_sm--60">
             <div class="rn-pd-content-area">
               <div class="pd-title-area">
-                <h4 class="title">{property?.propertyTitle?.slice(0, 25)}..</h4>
+                <h4 class="title">{property?.title?.slice(0, 25)}..</h4>
                 <div class="pd-react-area">
                   <div class="heart-count">
                     <span>{parsedReviews?.length}</span>
@@ -183,13 +174,11 @@ const DetailTwo = ({
                 </div>
               </div>
 
-              <h6 class="title-name">
-                #{property?.productID} Portal , Info bellow
-              </h6>
               <div class="catagory-collection">
                 <div class="catagory">
                   <span>
-                    Catagory <span class="color-body">10% royalties</span>
+                    Catagory{" "}
+                    <span class="color-body">{property?.category}</span>
                   </span>
                   <div class="top-seller-inner-one">
                     <div class="top-seller-wrapper">
@@ -200,7 +189,7 @@ const DetailTwo = ({
                       </div>
                       <div class="top-seller-content">
                         <a href="#">
-                          <h6 class="name">Only 10% Own</h6>
+                          <p class="name"> {property?.owner?.slice(0, 20)}..</p>
                         </a>
                       </div>
                     </div>
@@ -217,7 +206,7 @@ const DetailTwo = ({
                       </div>
                       <div class="top-seller-content">
                         <a href="#">
-                          <h6 class="name">{property?.category}</h6>
+                          <p class="name">{property?.category}</p>
                         </a>
                       </div>
                     </div>
@@ -295,6 +284,7 @@ const DetailTwo = ({
                               <span>{review?.reviewer.slice(0, 35)}... </span>
                               <div class="react-area">
                                 <svg
+                                  onClick={() => likeReviewCall()}
                                   viewBox="0 0 17 16"
                                   fill="none"
                                   width="16"

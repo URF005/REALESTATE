@@ -116,6 +116,7 @@ const detail = () => {
         setUpdatePropertyPrice={setUpdatePropertyPrice}
         updatepropertyPrice={updatepropertyPrice}
         updatePriceLoading={updatePriceLoading}
+        updatePropertyPrice={updatePropertyPrice}
       />
       <DetailEight
         createReview={createReview}

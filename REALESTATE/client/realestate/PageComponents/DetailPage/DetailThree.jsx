@@ -26,7 +26,7 @@ const DetailThree = ({ properties }) => {
               data-sal-duration="800"
               class="col-5 col-lg-4 col-md-6 col-sm-6 col-12"
             >
-              <a href={`/detail?property=${property.productID}`}>
+              <a href={`/detail?property=${property.productId}`}>
                 <div class="product-style-one no-overlay">
                   <div class="card-thumbnail">
                     <a>
@@ -51,7 +51,7 @@ const DetailThree = ({ properties }) => {
                     </div>
                   </div>
                   <a href="#">
-                    <span class="product-name">
+                    <span className="product-name">
                       {property.propertyTitle.length >= 25
                         ? `${property.propertyTitle.slice(0, 5)}...`
                         : property.propertyTitle}

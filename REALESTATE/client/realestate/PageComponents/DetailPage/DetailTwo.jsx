@@ -444,9 +444,6 @@ const DetailTwo = ({
                             {parsedReviews?.length}
                           </span>
                         </div>
-                        <div class="countdown-container seconds">
-                          Time Left: <Countdown date={Date.now() + 23455000} />
-                        </div>
                       </div>
                     </div>
                   </div>

@@ -80,13 +80,19 @@ const Product = ({ properties }) => {
             <div className="col-lg-4 col-md-6 col-sm-12 mb-4" key={property.id}>
               <div className="product-style-one no-overlay with-placeBid">
                 <div className="card-thumbnail">
-                  <Link href={`/detail?property=${property.id}`}>
+                  <Link href={`/detail?property=${property.productId}`}>
                     <img
                       src={property.images} // Assuming images is an array
                       alt={property.propertyTitle}
+                      style={{
+                        width: "100%", // Set desired width
+                        height: "200px", // Set desired height
+                        objectFit: "cover", // Ensures the image maintains aspect ratio and fills the area
+                      }}
                     />
                   </Link>
                 </div>
+
                 <div className="product-share-wrapper">
                   <div className="profile-share">
                     {property.reviewers.map((el, i) => (
@@ -109,7 +115,7 @@ const Product = ({ properties }) => {
                     )}
                   </div>
                 </div>
-                <Link href={`/detail?property=${property.productId}`}>
+                <Link href={`/detail?property=${property.productID}`}>
                   <span className="product-name">{property.propertyTitle}</span>
                 </Link>
                 <span class="latest-bid">Category: {property.category}</span>

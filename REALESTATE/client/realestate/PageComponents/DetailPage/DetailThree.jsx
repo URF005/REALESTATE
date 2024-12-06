@@ -30,7 +30,15 @@ const DetailThree = ({ properties }) => {
                 <div class="product-style-one no-overlay">
                   <div class="card-thumbnail">
                     <a>
-                      <img src={property.images} alt="NFT_portfolio" />
+                      <img
+                        style={{
+                          width: "100%", // Set desired width
+                          height: "200px", // Set desired height
+                          objectFit: "cover", // Ensures the image maintains aspect ratio and fills the area
+                        }}
+                        src={property.images}
+                        alt="NFT_portfolio"
+                      />
                     </a>
                   </div>
                   <div class="product-share-wrapper">

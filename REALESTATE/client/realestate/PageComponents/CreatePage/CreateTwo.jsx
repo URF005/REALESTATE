@@ -3,14 +3,14 @@ import { ethers } from "ethers";
 import axios from "axios";
 
 //INTERNAL IMPORT
-import { Loader, GlobalLoder } from "../Components";
+import { Loader } from "../Components";
 import { CreateThree } from ".";
 import { useStateContext } from "../../context";
 import { checkIfImage } from "../../utils";
 
 const categories = [
-  "Housing",
-  "Rental",
+  "House",
+  "Apartment",
   "Farmhouse",
   "Office",
   "Commercial",
@@ -24,16 +24,8 @@ const CreateTwo = () => {
   const [diplayImg, setDiplayImg] = useState(null);
   const [fileName, setFileName] = useState("Upload Image");
 
-  const {
-    currentAccount,
-    createPropertyFunction,
-    PINATA_API_KEY,
-    PINATA_SECRECT_KEY,
-    loader,
-    setLoader,
-    notifySuccess,
-    notifyError,
-  } = useStateContext();
+  const { address, contract, connect, createPropertyFunction } =
+    useStateContext();
 
   const [form, setForm] = useState({
     propertyTitle: "",
@@ -48,41 +40,23 @@ const CreateTwo = () => {
     setForm({ ...form, [fileName]: e.target.value });
   };
 
-  //NEW
   const handleSubmit = async () => {
     setIsLoading(true);
-
-    const {
-      propertyTitle,
-      description,
-      category,
-      price,
-      images,
-      propertyAddress,
-    } = form;
-
-    console.log(
-      propertyTitle,
-      description,
-      category,
-      price,
-      images,
-      propertyAddress
-    );
-
-    if (images || propertyTitle || price || category || description) {
-      await createPropertyFunction({
-        ...form,
-        price: ethers.utils.parseUnits(form.price, 18),
-      });
-      setIsLoading(false);
-    } else {
-      console.log("provide detail");
-    }
+    checkIfImage(form.images, async (exists) => {
+      if (exists) {
+        await createPropertyFunction({
+          ...form,
+          price: ethers.utils.parseUnits(form.price, 18),
+        });
+        setIsLoading(false);
+      } else {
+        alert("Provide valid image URL");
+        setForm({ ...form, images: "" });
+      }
+    });
   };
-  //
+
   const uploadToPinata = async () => {
-    setLoader(true);
     setFileName("Image Uploading...");
     if (file) {
       try {
@@ -94,21 +68,22 @@ const CreateTwo = () => {
           url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
           data: formData,
           headers: {
-            pinata_api_key: PINATA_API_KEY,
-            pinata_secret_api_key: PINATA_SECRECT_KEY,
+            pinata_api_key: `df91984789dd104ff26a`,
+            pinata_secret_api_key: `
+            3dcbbc287eb4a909c7a54f77d82b3f127a26d02ef79862c22b7b261bf2457cc3`,
             "Content-Type": "multipart/form-data",
           },
         });
         const ImgHash = `https://gateway.pinata.cloud/ipfs/${response.data.IpfsHash}`;
 
+        console.log(response);
+
+        console.log(ImgHash);
         setForm({ ...form, images: ImgHash });
-        notifySuccess("Successfully uploaded");
         setFileName("Image Uploaded");
-        setLoader(false);
         return ImgHash;
       } catch (error) {
-        setLoader(false);
-        notifyError("Unable to upload image to Pinata, Check API Key");
+        alert("Unable to upload image to Pinata");
       }
     }
   };
@@ -245,7 +220,7 @@ const CreateTwo = () => {
                       </div>
                     </div>
                   </div>
-                  {/* <div class="col-lg-6">
+                  <div class="col-lg-6">
                     <div class="collection-single-wized">
                       <label for="url" class="title">
                         Image
@@ -261,7 +236,7 @@ const CreateTwo = () => {
                         />
                       </div>
                     </div>
-                  </div> */}
+                  </div>
                   <div class="col-lg-12">
                     <div class="collection-single-wized">
                       <label class="title">Category</label>
@@ -278,7 +253,7 @@ const CreateTwo = () => {
                                     category: el,
                                   })
                                 }
-                                data-value="Housing"
+                                data-value="House"
                                 class="option"
                               >
                                 {el}
@@ -385,7 +360,6 @@ const CreateTwo = () => {
         </div>
       </div>
       <CreateThree data={form} />
-      {loader && <GlobalLoder />}
     </>
   );
 };

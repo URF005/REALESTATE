@@ -3,18 +3,18 @@ import { ethers } from "ethers";
 import axios from "axios";
 
 //INTERNAL IMPORT
-import { Loader } from "../Components";
+import { Loader, GlobalLoder } from "../Components";
 import { CreateThree } from ".";
 import { useStateContext } from "../../context";
 import { checkIfImage } from "../../utils";
 
 const categories = [
-  "House",
-  "Apartment",
+  "Housing",
+  "Rental",
   "Farmhouse",
   "Office",
   "Commercial",
-  "Country",
+  "country",
 ];
 
 const CreateTwo = () => {
@@ -24,8 +24,16 @@ const CreateTwo = () => {
   const [diplayImg, setDiplayImg] = useState(null);
   const [fileName, setFileName] = useState("Upload Image");
 
-  const { address, contract, connect, createPropertyFunction } =
-    useStateContext();
+  const {
+    currentAccount,
+    createPropertyFunction,
+    PINATA_API_KEY,
+    PINATA_SECRECT_KEY,
+    loader,
+    setLoader,
+    notifySuccess,
+    notifyError,
+  } = useStateContext();
 
   const [form, setForm] = useState({
     propertyTitle: "",
@@ -40,22 +48,39 @@ const CreateTwo = () => {
     setForm({ ...form, [fileName]: e.target.value });
   };
 
+  //NEW
   const handleSubmit = async () => {
     setIsLoading(true);
-    checkIfImage(form.images, async (exists) => {
-      if (exists) {
-        await createPropertyFunction({
-          ...form,
-          price: ethers.utils.parseUnits(form.price, 18),
-        });
-        setIsLoading(false);
-      } else {
-        alert("Provide valid image URL");
-        setForm({ ...form, images: "" });
-      }
-    });
-  };
 
+    const {
+      propertyTitle,
+      description,
+      category,
+      price,
+      images,
+      propertyAddress,
+    } = form;
+
+    console.log(
+      propertyTitle,
+      description,
+      category,
+      price,
+      images,
+      propertyAddress
+    );
+
+    if (images || propertyTitle || price || category || description) {
+      await createPropertyFunction({
+        ...form,
+        price: ethers.utils.parseUnits(form.price, 18),
+      });
+      setIsLoading(false);
+    } else {
+      console.log("provide detail");
+    }
+  };
+  //
   const uploadToPinata = async () => {
     setFileName("Image Uploading...");
     if (file) {
@@ -220,7 +245,7 @@ const CreateTwo = () => {
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-6">
+                  {/* <div class="col-lg-6">
                     <div class="collection-single-wized">
                       <label for="url" class="title">
                         Image
@@ -236,7 +261,7 @@ const CreateTwo = () => {
                         />
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div class="col-lg-12">
                     <div class="collection-single-wized">
                       <label class="title">Category</label>
@@ -253,7 +278,7 @@ const CreateTwo = () => {
                                     category: el,
                                   })
                                 }
-                                data-value="House"
+                                data-value="Housing"
                                 class="option"
                               >
                                 {el}

@@ -76,7 +76,7 @@ const detail = () => {
     setBuyLoading(false);
   };
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <DetailOne />
 

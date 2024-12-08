@@ -47,7 +47,7 @@ const collection = () => {
   console.log(category);
 
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <Title title={query.name} />
       <Collection category={category} isLoading={isLoading} />

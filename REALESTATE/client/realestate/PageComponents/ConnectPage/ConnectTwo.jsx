@@ -49,15 +49,21 @@ const ConnectTwo = () => {
               className="left-image"
               style={{ width: "100%", textAlign: "center" }}
             >
-              <img
-                src="connect/connect-01.png"
-                alt="Placeholder Wallet Connection"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  objectFit: "contain",
-                }}
-              />
+              <a
+                href="https://metamask.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img
+                  src="connect/connect-01.png"
+                  alt="Placeholder Wallet Connection"
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    objectFit: "contain",
+                  }}
+                />
+              </a>
             </div>
           </div>
           <div className="col-lg-6">

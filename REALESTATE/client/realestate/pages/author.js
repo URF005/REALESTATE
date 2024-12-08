@@ -36,7 +36,7 @@ const author = () => {
 
   console.log(properties);
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <AuthorOne />
       <AuthorTwo address={address} author={author} />

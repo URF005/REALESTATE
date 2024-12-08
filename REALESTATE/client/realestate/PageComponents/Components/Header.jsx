@@ -8,75 +8,64 @@ const Header = () => {
 
   return (
     <>
-      <header class="rn-header haeder-default header--sticky">
-        <div class="container">
-          <div class="header-inner">
-            <div class="header-left">
-              <div class="logo-thumbnail logo-custom-css">
-                <Link class="logo-light" href="/">
+      <header className="rn-header haeder-default header--sticky">
+        <div className="container">
+          <div className="header-inner">
+            <div className="header-left">
+              <div className="logo-thumbnail logo-custom-css">
+                <Link className="logo-light" href="/">
                   <img src="/logo/logo-white.png" alt="nft-logo" />
                 </Link>
-                <Link class="logo-dark" href="/">
+                <Link className="logo-dark" href="/">
                   <img src="/logo/logo-dark.png" alt="nft-logo" />
                 </Link>
               </div>
-              <div class="mainmenu-wrapper">
-                <nav id="sideNav" class="mainmenu-nav d-none d-xl-block">
-                  <ul class="mainmenu">
+              <div className="mainmenu-wrapper">
+                <nav id="sideNav" className="mainmenu-nav d-none d-xl-block">
+                  <ul className="mainmenu">
                     <li>
                       <a href="/">Home</a>
                     </li>
                     <li>
-                      <Link href="/about">About</Link>
+                      <a href="/about">About</a>
                     </li>
                     <li>
-                      <a href="/explore">Explore</a>
-                      <ul class="submenu">
+                      <a href="#">Explore</a>
+                      <ul className="submenu">
                         <li>
                           <Link href="/author">
-                            Owner<i class="feather-fast-forward"></i>
+                            Owner<i className="feather-fast-forward"></i>
                           </Link>
                         </li>
                         <li>
                           <Link href="/create">
                             Create
-                            <i class="feather-fast-forward"></i>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/creator">
-                            Creator
-                            <i class="feather-fast-forward"></i>
-                          </Link>
-                        </li>
-                        <li>
-                          <Link class="live-expo" href="/explor">
-                            Explore
+                            <i className="feather-fast-forward"></i>
                           </Link>
                         </li>
                       </ul>
                     </li>
                     <li>
-                      <Link href="/contact">Contact</Link>
+                      <a href="/contact">Contact</a>
                     </li>
                   </ul>
                 </nav>
               </div>
             </div>
-            <div class="header-right">
+            <div className="header-right">
               {/* //CONNECT WALLET */}
 
               {address ? (
                 ""
               ) : (
                 <div
-                  class="setting-option header-btn rbt-site-header"
+                  className="setting-option header-btn rbt-site-header"
                   id="rbt-site-header"
                 >
-                  <div class="icon-box">
+                  <div className="icon-box">
                     <button
                       onClick={() => connect()}
-                      class="btn btn-primary-alta btn-small"
+                      className="btn btn-primary-alta btn-small"
                     >
                       Wallet connect
                     </button>
@@ -88,23 +77,23 @@ const Header = () => {
 
               {address ? (
                 <div>
-                  <div class="setting-option rn-icon-list user-account">
-                    <div class="icon-box">
+                  <div className="setting-option rn-icon-list user-account">
+                    <div className="icon-box">
                       <a href="/author">
                         <img src="/icons/boy-avater.png" alt="Images" />
                       </a>
-                      <div class="rn-dropdown">
-                        <div class="rn-inner-top">
-                          <h4 class="title">
+                      <div className="rn-dropdown">
+                        <div className="rn-inner-top">
+                          <h4 className="title">
                             <a href="product-details.html">
                               {address.slice(0, 15)}...
                             </a>
                           </h4>
                         </div>
-                        <div class="rn-product-inner">
-                          <ul class="product-list">
-                            <li class="single-product-list">
-                              <div class="thumbnail">
+                        <div className="rn-product-inner">
+                          <ul className="product-list">
+                            <li className="single-product-list">
+                              <div className="thumbnail">
                                 <a href="product-details.html">
                                   <img
                                     src="/portfolio/portfolio-07.jpg"
@@ -112,24 +101,24 @@ const Header = () => {
                                   />
                                 </a>
                               </div>
-                              <div class="content">
-                                <h6 class="title">
+                              <div className="content">
+                                <h6 className="title">
                                   <a href="product-details.html">Balance</a>
                                 </h6>
-                                <span class="price">
+                                <span className="price">
                                   {userBlance?.slice(0, 6)} MATIC
                                 </span>
                               </div>
-                              <div class="button"></div>
+                              <div className="button"></div>
                             </li>
                           </ul>
                         </div>
-                        <div class="add-fund-button mt--20 pb--20">
-                          <a class="btn btn-primary-alta w-100" href="/connect">
+                        <div className="add-fund-button mt--20 pb--20">
+                          <a className="btn btn-primary-alta w-100" href="/connect">
                             Add Your More Funds
                           </a>
                         </div>
-                        <ul class="list-inner">
+                        <ul className="list-inner">
                           <li>
                             <a href="/author">My Profile</a>
                           </li>
@@ -151,10 +140,10 @@ const Header = () => {
                 ""
               )}
 
-              <div class="setting-option mobile-menu-bar d-block d-xl-none">
-                <div class="hamberger">
-                  <button class="hamberger-button">
-                    <i class="feather-menu"></i>
+              <div className="setting-option mobile-menu-bar d-block d-xl-none">
+                <div className="hamberger">
+                  <button className="hamberger-button">
+                    <i className="feather-menu"></i>
                   </button>
                 </div>
               </div>
@@ -164,27 +153,27 @@ const Header = () => {
       </header>
 
       {/* MOBILE MENU */}
-      <div class="popup-mobile-menu">
-        <div class="inner">
-          <div class="header-top">
-            <div class="logo logo-custom-css">
-              <a class="logo-light" href="index.html">
+      <div className="popup-mobile-menu">
+        <div className="inner">
+          <div className="header-top">
+            <div className="logo logo-custom-css">
+              <a className="logo-light" href="index.html">
                 <img src="/logo/logo-white.png" alt="nft-logo" />
               </a>
-              <a class="logo-dark" href="index.html">
+              <a className="logo-dark" href="index.html">
                 <img src="/logo/logo-dark.png" alt="nft-logo" />
               </a>
             </div>
-            <div class="close-menu">
-              <button class="close-button">
-                <i class="feather-x"></i>
+            <div className="close-menu">
+              <button className="close-button">
+                <i className="feather-x"></i>
               </button>
             </div>
           </div>
           <nav>
-            <ul class="mainmenu">
+            <ul className="mainmenu">
               <li>
-                <a class="nav-link its_new" href="/">
+                <a className="nav-link its_new" href="/">
                   Home
                 </a>
               </li>
@@ -192,7 +181,7 @@ const Header = () => {
                 <a href="/about">About</a>
               </li>
               <li>
-                <a class="nav-link its_new" href="/explor">
+                <a className="nav-link its_new" href="/explor">
                   Explore
                 </a>
               </li>

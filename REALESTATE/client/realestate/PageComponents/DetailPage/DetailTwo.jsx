@@ -12,20 +12,20 @@ const DetailTwo = ({
   const timeComment = new Date(new Date() - Math.random() * 1e12);
 
   return (
-    <div class="product-details-area rn-section-gapTop">
-      <div class="container">
-        <div class="row g-5">
-          <div class="col-lg-7 col-md-12 col-sm-12">
-            <div class="product-tab-wrapper rbt-sticky-top-adjust">
-              <div class="pd-tab-inner">
+    <div className="product-details-area rn-section-gapTop">
+      <div className="container">
+        <div className="row g-5">
+          <div className="col-lg-7 col-md-12 col-sm-12">
+            <div className="product-tab-wrapper rbt-sticky-top-adjust">
+              <div className="pd-tab-inner">
                 <div
-                  class="nav rn-pd-nav rn-pd-rt-content nav-pills"
+                  className="nav rn-pd-nav rn-pd-rt-content nav-pills"
                   id="v-pills-tab"
                   role="tablist"
                   aria-orientation="vertical"
                 >
                   <button
-                    class="nav-link active"
+                    className="nav-link active"
                     id="v-pills-home-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#v-pills-home"
@@ -34,12 +34,12 @@ const DetailTwo = ({
                     aria-controls="v-pills-home"
                     aria-selected="true"
                   >
-                    <span class="rn-pd-sm-thumbnail">
+                    <span className="rn-pd-sm-thumbnail">
                       <img src={property?.image} alt="Nft_Profile" />
                     </span>
                   </button>
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="v-pills-profile-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#v-pills-profile"
@@ -48,12 +48,12 @@ const DetailTwo = ({
                     aria-controls="v-pills-profile"
                     aria-selected="false"
                   >
-                    <span class="rn-pd-sm-thumbnail">
+                    <span className="rn-pd-sm-thumbnail">
                       <img src={property?.image} alt="Nft_Profile" />
                     </span>
                   </button>
                   <button
-                    class="nav-link"
+                    className="nav-link"
                     id="v-pills-messages-tab"
                     data-bs-toggle="pill"
                     data-bs-target="#v-pills-messages"
@@ -62,20 +62,20 @@ const DetailTwo = ({
                     aria-controls="v-pills-messages"
                     aria-selected="false"
                   >
-                    <span class="rn-pd-sm-thumbnail">
+                    <span className="rn-pd-sm-thumbnail">
                       <img src={property?.image} alt="Nft_Profile" />
                     </span>
                   </button>
                 </div>
 
-                <div class="tab-content rn-pd-content" id="v-pills-tabContent">
+                <div className="tab-content rn-pd-content" id="v-pills-tabContent">
                   <div
-                    class="tab-pane fade show active"
+                    className="tab-pane fade show active"
                     id="v-pills-home"
                     role="tabpanel"
                     aria-labelledby="v-pills-home-tab"
                   >
-                    <div class="rn-pd-thumbnail">
+                    <div className="rn-pd-thumbnail">
                       {isLoading ? (
                         <Loader />
                       ) : (
@@ -84,12 +84,12 @@ const DetailTwo = ({
                     </div>
                   </div>
                   <div
-                    class="tab-pane fade"
+                    className="tab-pane fade"
                     id="v-pills-profile"
                     role="tabpanel"
                     aria-labelledby="v-pills-profile-tab"
                   >
-                    <div class="rn-pd-thumbnail">
+                    <div className="rn-pd-thumbnail">
                       <img
                         src="/portfolio/portfolio-02.jpg"
                         alt="Nft_Profile"
@@ -97,12 +97,12 @@ const DetailTwo = ({
                     </div>
                   </div>
                   <div
-                    class="tab-pane fade"
+                    className="tab-pane fade"
                     id="v-pills-messages"
                     role="tabpanel"
                     aria-labelledby="v-pills-messages-tab"
                   >
-                    <div class="rn-pd-thumbnail">
+                    <div className="rn-pd-thumbnail">
                       <img
                         src="/portfolio/portfolio-03.jpg"
                         alt="Nft_Profile"
@@ -114,50 +114,50 @@ const DetailTwo = ({
             </div>
           </div>
 
-          <div class="col-lg-5 col-md-12 col-sm-12 mt_md--50 mt_sm--60">
-            <div class="rn-pd-content-area">
-              <div class="pd-title-area">
-                <h4 class="title">{property?.title?.slice(0, 25)}..</h4>
-                <div class="pd-react-area">
-                  <div class="heart-count">
+          <div className="col-lg-5 col-md-12 col-sm-12 mt_md--50 mt_sm--60">
+            <div className="rn-pd-content-area">
+              <div className="pd-title-area">
+                <h4 className="title">{property?.title?.slice(0, 25)}..</h4>
+                <div className="pd-react-area">
+                  <div className="heart-count">
                     <span>{parsedReviews?.length}</span>
                   </div>
                 </div>
               </div>
 
-              <div class="catagory-collection">
-                <div class="catagory">
+              <div className="catagory-collection">
+                <div className="catagory">
                   <span>
                     Catagory{" "}
-                    <span class="color-body">{property?.category}</span>
+                    <span className="color-body">{property?.category}</span>
                   </span>
-                  <div class="top-seller-inner-one">
-                    <div class="top-seller-wrapper">
-                      <div class="thumbnail">
+                  <div className="top-seller-inner-one">
+                    <div className="top-seller-wrapper">
+                      <div className="thumbnail">
                         <a href="#">
                           <img src="/client/client-1.png" alt="Nft_Profile" />
                         </a>
                       </div>
-                      <div class="top-seller-content">
+                      <div className="top-seller-content">
                         <a href="#">
-                          <p class="name"> {property?.owner?.slice(0, 20)}..</p>
+                          <p className="name"> {property?.owner?.slice(0, 20)}..</p>
                         </a>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="collection">
+                <div className="collection">
                   <span>Collections</span>
-                  <div class="top-seller-inner-one">
-                    <div class="top-seller-wrapper">
-                      <div class="thumbnail">
+                  <div className="top-seller-inner-one">
+                    <div className="top-seller-wrapper">
+                      <div className="thumbnail">
                         <a href="#">
                           <img src="/client/client-2.png" alt="Nft_Profile" />
                         </a>
                       </div>
-                      <div class="top-seller-content">
+                      <div className="top-seller-content">
                         <a href="#">
-                          <p class="name">{property?.category}</p>
+                          <p className="name">{property?.category}</p>
                         </a>
                       </div>
                     </div>
@@ -165,12 +165,12 @@ const DetailTwo = ({
                 </div>
               </div>
 
-              <div class="rn-bid-details">
-                <div class="tab-wrapper-one">
-                  <nav class="tab-button-one">
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <div className="rn-bid-details">
+                <div className="tab-wrapper-one">
+                  <nav className="tab-button-one">
+                    <div className="nav nav-tabs" id="nav-tab" role="tablist">
                       <button
-                        class="nav-link"
+                        className="nav-link"
                         id="nav-home-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#nav-home"
@@ -182,7 +182,7 @@ const DetailTwo = ({
                         Comments
                       </button>
                       <button
-                        class="nav-link active"
+                        className="nav-link active"
                         id="nav-profile-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#nav-profile"
@@ -194,7 +194,7 @@ const DetailTwo = ({
                         Details
                       </button>
                       <button
-                        class="nav-link"
+                        className="nav-link"
                         id="nav-contact-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#nav-contact"
@@ -207,17 +207,17 @@ const DetailTwo = ({
                       </button>
                     </div>
                   </nav>
-                  <div class="tab-content rn-bid-content" id="nav-tabContent">
+                  <div className="tab-content rn-bid-content" id="nav-tabContent">
                     <div
-                      class="tab-pane fade"
+                      className="tab-pane fade"
                       id="nav-home"
                       role="tabpanel"
                       aria-labelledby="nav-home-tab"
                     >
                       {parsedReviews?.map((review, i) => (
-                        <div key={i + 1} class="top-seller-inner-one">
-                          <div class="top-seller-wrapper">
-                            <div class="thumbnail">
+                        <div key={i + 1} className="top-seller-inner-one">
+                          <div className="top-seller-wrapper">
+                            <div className="thumbnail">
                               <a href="#">
                                 <img
                                   src={`/client/client-${i + 1}.png`}
@@ -225,10 +225,10 @@ const DetailTwo = ({
                                 />
                               </a>
                             </div>
-                            <div class="top-seller-content">
+                            <div className="top-seller-content">
                               <span>{review?.reviewer.slice(0, 35)}... </span>
 
-                              <span class="count-number">
+                              <span className="count-number">
                                 {review?.comment.slice(0, 70)}
                                 {review?.comment.length >= 93 ? "..." : ""}
                               </span>
@@ -238,16 +238,16 @@ const DetailTwo = ({
                       ))}
                     </div>
                     <div
-                      class="tab-pane fade show active"
+                      className="tab-pane fade show active"
                       id="nav-profile"
                       role="tabpanel"
                       aria-labelledby="nav-profile-tab"
                     >
-                      <div class="rn-pd-bd-wrapper">
-                        <div class="top-seller-inner-one">
-                          <h6 class="name-title">Owner</h6>
-                          <div class="top-seller-wrapper">
-                            <div class="thumbnail">
+                      <div className="rn-pd-bd-wrapper">
+                        <div className="top-seller-inner-one">
+                          <h6 className="name-title">Owner</h6>
+                          <div className="top-seller-wrapper">
+                            <div className="thumbnail">
                               <a href="#">
                                 <img
                                   src="/client/client-1.png"
@@ -255,9 +255,9 @@ const DetailTwo = ({
                                 />
                               </a>
                             </div>
-                            <div class="top-seller-content">
+                            <div className="top-seller-content">
                               <a href="#">
-                                <h6 class="name">
+                                <h6 className="name">
                                   {property?.owner?.slice(0, 20)}..
                                 </h6>
                               </a>
@@ -265,47 +265,47 @@ const DetailTwo = ({
                           </div>
                         </div>
 
-                        <div class="rn-pd-sm-property-wrapper">
-                          <div class="pd-property-inner">
-                            <h6 class="pd-property-title"> Title</h6>
-                            <span class="color-white value">
+                        <div className="rn-pd-sm-property-wrapper">
+                          <div className="pd-property-inner">
+                            <h6 className="pd-property-title"> Title</h6>
+                            <span className="color-white value">
                               {property?.title}
                             </span>
                           </div>
-                          <div class="pd-property-inner">
-                            <h6 class="pd-property-title"> Description</h6>
+                          <div className="pd-property-inner">
+                            <h6 className="pd-property-title"> Description</h6>
 
-                            <span class="color-white value">
+                            <span className="color-white value">
                               {property?.description}
                             </span>
                           </div>
-                          <div class="pd-property-inner">
-                            <h6 class="pd-property-title"> Address</h6>
+                          <div className="pd-property-inner">
+                            <h6 className="pd-property-title"> Address</h6>
 
-                            <span class="color-white value">
+                            <span className="color-white value">
                               {property?.address}
                             </span>
                           </div>
-                          <div class="pd-property-inner">
-                            <h6 class="pd-property-title">
+                          <div className="pd-property-inner">
+                            <h6 className="pd-property-title">
                               {" "}
                               Price 18 Decimal Points: {property?.price} Matic
                             </h6>
                           </div>
-                          <div class="pd-property-inner">
-                            <h6 class="pd-property-title">
+                          <div className="pd-property-inner">
+                            <h6 className="pd-property-title">
                               {" "}
                               Property ID: {property?.productID}
                             </h6>
                           </div>
                         </div>
 
-                        <div class="rn-pd-sm-property-wrapper">
-                          <h6 class="pd-property-title">Catagory</h6>
-                          <div class="catagory-wrapper">
-                            <div class="pd-property-inner">
-                              <span class="color-body type">TYPE</span>
-                              <span class="color-white value ">
+                        <div className="rn-pd-sm-property-wrapper">
+                          <h6 className="pd-property-title">Catagory</h6>
+                          <div className="catagory-wrapper">
+                            <div className="pd-property-inner">
+                              <span className="color-body type">TYPE</span>
+                              <span className="color-white value ">
                                 {property?.category}
                               </span>
                             </div>
@@ -314,15 +314,15 @@ const DetailTwo = ({
                       </div>
                     </div>
                     <div
-                      class="tab-pane fade"
+                      className="tab-pane fade"
                       id="nav-contact"
                       role="tabpanel"
                       aria-labelledby="nav-contact-tab"
                     >
                       {parsedReviews?.map((interest, i) => (
-                        <div key={i + 1} class="top-seller-inner-one">
-                          <div class="top-seller-wrapper">
-                            <div class="thumbnail">
+                        <div key={i + 1} className="top-seller-inner-one">
+                          <div className="top-seller-wrapper">
+                            <div className="thumbnail">
                               <a href="#">
                                 <img
                                   src={`/client/client-${i + 1}.png`}
@@ -330,8 +330,8 @@ const DetailTwo = ({
                                 />
                               </a>
                             </div>
-                            <div class="top-seller-content">
-                              <span class="count-number">
+                            <div className="top-seller-content">
+                              <span className="count-number">
                                 {interest?.reviewer.slice(0, 40)}...
                               </span>
                               <span>{i + 1} hours ago</span>
@@ -342,8 +342,8 @@ const DetailTwo = ({
                     </div>
                   </div>
                 </div>
-                <div class="place-bet-area">
-                  <div class="rn-bet-create">
+                <div className="place-bet-area">
+                  <div className="rn-bet-create">
                     {" "}
                     <div className="bid-list winning-bid">
                       <h6 className="title">Recent Comments</h6>
@@ -377,24 +377,24 @@ const DetailTwo = ({
                           </div>
                         ))}
                     </div>
-                    <div class="bid-list left-bid">
-                      <h6 class="title">Property Stats</h6>
-                      <div class=" mt--15" data-date="2025-12-09">
-                        <div class="countdown-container days">
-                          <span class="countdown-value">Price: </span>
-                          <span class="countdown-heading">
+                    <div className="bid-list left-bid">
+                      <h6 className="title">Property Stats</h6>
+                      <div className=" mt--15" data-date="2025-12-09">
+                        <div className="countdown-container days">
+                          <span className="countdown-value">Price: </span>
+                          <span className="countdown-heading">
                             {property?.price} MATIC
                           </span>
                         </div>
-                        <div class="countdown-container hours">
-                          <span class="countdown-value">Comments: </span>
-                          <span class="countdown-heading">
+                        <div className="countdown-container hours">
+                          <span className="countdown-value">Comments: </span>
+                          <span className="countdown-heading">
                             {parsedReviews?.length}
                           </span>
                         </div>
-                        <div class="countdown-container minutes">
-                          <span class="countdown-value"> Interest: </span>
-                          <span class="countdown-heading">
+                        <div className="countdown-container minutes">
+                          <span className="countdown-value"> Interest: </span>
+                          <span className="countdown-heading">
                             {parsedReviews?.length}
                           </span>
                         </div>
@@ -405,7 +405,7 @@ const DetailTwo = ({
                   <button
                     onClick={() => buyingProperty()}
                     type="button"
-                    class="btn btn-primary-alta mt--30"
+                    className="btn btn-primary-alta mt--30"
                   >
                     {buyLoading ? (
                       <Loader />
@@ -419,7 +419,7 @@ const DetailTwo = ({
                   </button>
                   <button
                     type="button"
-                    class="btn btn-primary-alta mt--30"
+                    className="btn btn-primary-alta mt--30"
                     data-bs-toggle="modal"
                     data-bs-target="#placebidModal"
                   >

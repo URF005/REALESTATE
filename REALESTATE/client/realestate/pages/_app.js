@@ -10,7 +10,7 @@ const App = ({ Component, pageProps }) => {
       <ThirdwebProvider
         ChainId={ChainId.PolygonAmoyTestnet}
         activeChain={PolygonAmoyTestnet}
-        clientId="03a732d3bd2385b8a7f454a34b18b4ee"
+        clientId="83739712a88996e30f165fe3e3739b7d"
       >
         <StateContextProvider>
           <Component {...pageProps} />

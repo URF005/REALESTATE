@@ -16,8 +16,8 @@ const Banner = () => {
       link: "/farmhouse",
     },
     {
-      name: "Rental",
-      link: "/rental",
+      name: "Apartment",
+      link: "/apartment",
     },
     {
       name: "Commercial",
@@ -29,21 +29,21 @@ const Banner = () => {
     },
   ];
   return (
-    <div class="banner-three slider-style-3 pt--70">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-5">
-            <div class="wrapper">
-              <div class="slider ">
-                <div class="slider-thumbnail thumbnail-overlay">
+    <div className="banner-three slider-style-3 pt--70">
+      <div className="container">
+        <div className="row g-4">
+          <div className="col-lg-5">
+            <div className="wrapper">
+              <div className="slider ">
+                <div className="slider-thumbnail thumbnail-overlay">
                   <a>
                     <img
-                      class="w-100"
+                      className="w-100"
                       src="/portfolio/portfolio-11.jpg"
                       alt="NFT_portfolio"
                     />
                   </a>
-                  <div class="read-wrapper">
+                  <div className="read-wrapper">
                     <h5>
                       <a>@theQrealcoders</a>
                     </h5>
@@ -54,12 +54,12 @@ const Banner = () => {
             </div>
           </div>
 
-          <div class="col-lg-7">
-            <div class="row g-4">
+          <div className="col-lg-7">
+            <div className="row g-4">
               {category.map((el, i) => (
-                <div key={i + 1} class="col-lg-4 col-md-6 col-sm-6 col-12">
-                  <div class="slide-small-wrapper">
-                    <div class="thumbnail thumbnail-overlay">
+                <div key={i + 1} className="col-lg-4 col-md-6 col-sm-6 col-12">
+                  <div className="slide-small-wrapper">
+                    <div className="thumbnail thumbnail-overlay">
                       <Link
                         href={{
                           pathname: `/category${el.link}`,
@@ -67,14 +67,14 @@ const Banner = () => {
                         }}
                       >
                         <img
-                          class="w-100"
+                          className="w-100"
                           src={`/portfolio/portfolio-${i + 12}.jpg`}
                           alt="Nft_Profile"
                         />
                       </Link>
                     </div>
-                    <div class="read-wrapper">
-                      <h5 class="title">
+                    <div className="read-wrapper">
+                      <h5 className="title">
                         <Link href="#">{el.name}</Link>
                       </h5>
                     </div>

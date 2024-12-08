@@ -11,7 +11,7 @@ import { Header, Footer, Copyright } from "../PageComponents/Components";
 
 const contact = () => {
   return (
-    <div class="template-color-1 nft-body-connect">
+    <div className="template-color-1 nft-body-connect">
       <Header />
       <ContactOne />
       <ContactTwo />

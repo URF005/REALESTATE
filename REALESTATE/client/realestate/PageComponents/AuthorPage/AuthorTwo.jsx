@@ -2,26 +2,26 @@ import React from "react";
 
 const AuthorTwo = ({ address, author }) => {
   return (
-    <div class="rn-author-area mb--30 mt_dec--120">
-      <div class="container">
-        <div class="row padding-tb-50 align-items-center d-flex">
-          <div class="col-lg-12">
-            <div class="author-wrapper">
-              <div class="author-inner">
-                <div class="user-thumbnail">
+    <div className="rn-author-area mb--30 mt_dec--120">
+      <div className="container">
+        <div className="row padding-tb-50 align-items-center d-flex">
+          <div className="col-lg-12">
+            <div className="author-wrapper">
+              <div className="author-inner">
+                <div className="user-thumbnail">
                   <img src="/profile/profile-01.jpg" alt="" />
                 </div>
-                <div class="rn-author-info-content">
-                  <h4 class="title">{address}</h4>
-                  <a href="#" class="social-follw">
+                <div className="rn-author-info-content">
+                  <h4 className="title">{address}</h4>
+                  <a href="#" className="social-follw">
                     {/* <i data-feather="twitter"></i> */}
-                    <span class="user-name">PolygonUserPK</span>
+                    <span className="user-name">PolygonUserPK</span>
                   </a>
-                  <div class="follow-area">
-                    <div class="follow following">
+                  <div className="follow-area">
+                    <div className="follow following">
                       <span>
                         {author?.length}{" "}
-                        <a href="#" class="color-body">
+                        <a href="#" className="color-body">
                           Owned Properties
                         </a>
                       </span>

@@ -15,7 +15,7 @@ import { useStateContext } from "../context";
 import { checkIfImage } from "../utils";
 
 const categories = [
-  "Housing",
+  "House",
   "Rental",
   "Farmhouse",
   "Office",

@@ -17,7 +17,7 @@ import { ethers } from "ethers";
 const StateContext = createContext();
 export const StateContextProvider = ({ children }) => {
   const { contract } = useContract(
-    "0x3AA5803BFAF5f8fd0167C605C26cbeBFC690dab8"
+    "0x24df7219F7fB6C457f179db73f4d00DB85D02463"
   );
   console.log(contract);
   const address = useAddress();

@@ -7,22 +7,17 @@ import { Header, Footer, Copyright } from "../PageComponents/Components";
 import {
   DetailEight,
   DetailFive,
-  DetailFour,
   DetailOne,
-  DetailSeven,
-  DetailSix,
   DetailThree,
   DetailTwo,
 } from "../PageComponents/DetailPage";
 
-import { Loader } from "../PageComponents/Components";
 import { useStateContext } from "../context";
 const detail = () => {
   const [property, setProperty] = useState();
   const [parsedReviews, setParsedReviews] = useState();
   const [properties, setProperties] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [updatePriceLoading, setUpdatePriceLoading] = useState(false);
   const [commentLoading, setCommentLoading] = useState(false);
   const [buyLoading, setBuyLoading] = useState(false);
   const {
@@ -80,20 +75,6 @@ const detail = () => {
     const data = await buyPropertyFunction(buying);
     setBuyLoading(false);
   };
-  //UPDATE PRICE
-  const [updatePropertyPrice, setUpdatePropertyPrice] = useState({
-    productID: property?.productID,
-    price: "",
-  });
-  const updatepropertyPrice = async () => {
-    setUpdatePriceLoading(true);
-    const data = await updatePriceFunction({
-      ...updatePropertyPrice,
-      productID: property?.productID,
-    });
-    setUpdatePriceLoading(false);
-    window.location.reload();
-  };
   return (
     <div class="template-color-1 nft-body-connect">
       <Header />
@@ -110,14 +91,7 @@ const detail = () => {
 
       <DetailThree properties={properties} />
       <DetailFive />
-      <DetailSix />
-      <DetailSeven
-        property={property}
-        setUpdatePropertyPrice={setUpdatePropertyPrice}
-        updatepropertyPrice={updatepropertyPrice}
-        updatePriceLoading={updatePriceLoading}
-        updatePropertyPrice={updatePropertyPrice}
-      />
+
       <DetailEight
         createReview={createReview}
         handleFormFieldChange={handleFormFieldChange}

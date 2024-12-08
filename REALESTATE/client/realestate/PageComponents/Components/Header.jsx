@@ -34,7 +34,7 @@ const Header = () => {
                       <ul class="submenu">
                         <li>
                           <Link href="/author">
-                            Author<i class="feather-fast-forward"></i>
+                            Owner<i class="feather-fast-forward"></i>
                           </Link>
                         </li>
                         <li>
@@ -64,41 +64,6 @@ const Header = () => {
               </div>
             </div>
             <div class="header-right">
-              <div class="setting-option d-none d-lg-block">
-                <form class="search-form-wrapper" action="#">
-                  <input
-                    type="search"
-                    placeholder="Search Here"
-                    aria-label="Search"
-                  />
-                  <div class="search-icon">
-                    <button>
-                      <i class="feather-search"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
-              <div class="setting-option rn-icon-list d-block d-lg-none">
-                <div class="icon-box search-mobile-icon">
-                  <button>
-                    <i class="feather-search"></i>
-                  </button>
-                </div>
-                <form
-                  id="header-search-1"
-                  action="#"
-                  method="GET"
-                  class="large-mobile-blog-search"
-                >
-                  <div class="rn-search-mobile form-group">
-                    <button type="submit" class="search-button">
-                      <i class="feather-search"></i>
-                    </button>
-                    <input type="text" placeholder="Search ..." />
-                  </div>
-                </form>
-              </div>
-
               {/* //CONNECT WALLET */}
 
               {address ? (
@@ -120,14 +85,6 @@ const Header = () => {
               )}
 
               {/* //END CONNECT WALLET */}
-              <div class="setting-option rn-icon-list notification-badge">
-                <div class="icon-box">
-                  <a href="/activity">
-                    <i class="feather-bell"></i>
-                    <span class="badge">6</span>
-                  </a>
-                </div>
-              </div>
 
               {address ? (
                 <div>
@@ -176,9 +133,7 @@ const Header = () => {
                           <li>
                             <a href="/author">My Profile</a>
                           </li>
-                          <li>
-                            <a href="/edit-profile">Edit Profile</a>
-                          </li>
+
                           <li>
                             <a href="/connect">Manage funds</a>
                           </li>
@@ -241,16 +196,7 @@ const Header = () => {
                   Explore
                 </a>
               </li>
-              <li>
-                <a class="nav-link its_new" href="/">
-                  Pages
-                </a>
-              </li>
-              <li>
-                <a class="nav-link its_new" href="/blog">
-                  Blog
-                </a>
-              </li>
+
               <li>
                 <a href="/contact">Contact</a>
               </li>

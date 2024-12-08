@@ -11,10 +11,10 @@ const Copyright = () => {
                 <span>©2024 Qreal. All rights reserved.</span>
                 <ul class="privacy">
                   <li>
-                    <a href="terms-condition.html">Terms</a>
+                    <a href="#">Terms</a>
                   </li>
                   <li>
-                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <a href="#">Privacy Policy</a>
                   </li>
                 </ul>
               </div>

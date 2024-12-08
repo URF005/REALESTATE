@@ -41,7 +41,6 @@ const author = () => {
       <AuthorOne />
       <AuthorTwo address={address} author={author} />
       <AuthorThree properties={properties} author={author} />
-      <AuthorFour />
       <AuthorFive />
       <Footer />
       <Copyright />

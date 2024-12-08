@@ -17,7 +17,8 @@ const Footer = () => {
                   </a>
                 </div>
                 <p className="rn-footer-describe">
-                  Built to revolutionize property transactions across Pakistan, ensuring trust and transparency with blockchain technology.
+                  Built to revolutionize property transactions across Pakistan,
+                  ensuring trust and transparency with blockchain technology.
                 </p>
               </div>
             </div>
@@ -28,25 +29,25 @@ const Footer = () => {
               <h6 className="widget-title">Quick Links</h6>
               <ul className="footer-list-one">
                 <li className="single-list">
-                  <a href="#">Explore Listings</a>
+                  <a href="javascript:void(0);">Explore Listings</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Blockchain Security</a>
+                  <a href="javascript:void(0);">Blockchain Security</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Efficient Transactions</a>
+                  <a href="javascript:void(0);">Efficient Transactions</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Legal Support</a>
+                  <a href="javascript:void(0);">Legal Support</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Transparency Tools</a>
+                  <a href="javascript:void(0);">Transparency Tools</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Transaction History</a>
+                  <a href="javascript:void(0);">Transaction History</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Auto-Sync Records</a>
+                  <a href="javascript:void(0);">Auto-Sync Records</a>
                 </li>
               </ul>
             </div>
@@ -57,25 +58,25 @@ const Footer = () => {
               <h6 className="widget-title">Information</h6>
               <ul className="footer-list-one">
                 <li className="single-list">
-                  <a href="#">Market Insights</a>
+                  <a href="javascript:void(0);">Market Insights</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Tokenize Property</a>
+                  <a href="javascript:void(0);">Tokenize Property</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Key Resources</a>
+                  <a href="javascript:void(0);">Key Resources</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Buyer Protection</a>
+                  <a href="javascript:void(0);">Buyer Protection</a>
                 </li>
                 <li className="single-list">
-                  <a href="blog.html">Blog Updates</a>
+                  <a href="javascript:void(0);">Blog Updates</a>
                 </li>
                 <li className="single-list">
-                  <a href="about.html">About Us</a>
+                  <a href="javascript:void(0);">About Us</a>
                 </li>
                 <li className="single-list">
-                  <a href="#">Issue Resolution</a>
+                  <a href="javascript:void(0);">Issue Resolution</a>
                 </li>
               </ul>
             </div>
@@ -96,7 +97,7 @@ const Footer = () => {
                   </div>
                   <div className="content">
                     <h6 className="title">
-                      <a href="property-details.html">#12 Gulberg Villa</a>
+                      <a href="javascript:void(0);">#12 Gulberg Villa</a>
                     </h6>
                     <p>Highest offer 1/15</p>
                     <span className="price">PKR 15M</span>
@@ -113,7 +114,7 @@ const Footer = () => {
                   </div>
                   <div className="content">
                     <h6 className="title">
-                      <a href="property-details.html">Clifton Heights</a>
+                      <a href="javascript:void(0);">Clifton Heights</a>
                     </h6>
                     <p>Highest offer 1/10</p>
                     <span className="price">PKR 8M</span>
@@ -121,7 +122,7 @@ const Footer = () => {
                 </li>
                 <li className="recent-post">
                   <div className="thumbnail">
-                    <a href="property-details.html">
+                    <a href="javascript:void(0);">
                       <img
                         src="/portfolio/portfolio-02.jpg"
                         alt="Property Images"
@@ -130,7 +131,7 @@ const Footer = () => {
                   </div>
                   <div className="content">
                     <h6 className="title">
-                      <a href="property-details.html">DHA Phase 5</a>
+                      <a href="javascript:void(0);">DHA Phase 5</a>
                     </h6>
                     <p>Highest offer 1/25</p>
                     <span className="price">PKR 20M</span>

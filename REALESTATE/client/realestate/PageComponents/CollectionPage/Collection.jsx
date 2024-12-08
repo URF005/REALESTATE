@@ -23,7 +23,15 @@ const Collection = ({ category, isLoading }) => {
                 >
                   <div class="collection-wrapper">
                     <div class="collection-big-thumbnail">
-                      <img src={el.images} alt="Nft_Profile" />
+                      <img
+                        style={{
+                          width: "100%",
+                          height: "200px",
+                          objectFit: "cover",
+                        }}
+                        src={el.images}
+                        alt="Nft_Profile"
+                      />
                     </div>
                     <div class="collenction-small-thumbnail">
                       {[1, 2, 3].map((el, i) => (

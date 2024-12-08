@@ -33,11 +33,6 @@ const Header = () => {
                       <a href="/explore">Explore</a>
                       <ul class="submenu">
                         <li>
-                          <Link href="/active">
-                            Activity<i class="feather-fast-forward"></i>
-                          </Link>
-                        </li>
-                        <li>
                           <Link href="/author">
                             Author<i class="feather-fast-forward"></i>
                           </Link>

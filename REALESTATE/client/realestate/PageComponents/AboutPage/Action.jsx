@@ -2,45 +2,45 @@ import React from "react";
 
 const Action = () => {
   return (
-    <div class="rn-callto-action rn-section-gapTop">
-      <div class="container-fluid about-fluidimg-cta">
-        <div class="row">
-          <div class="col-lg-12">
+    <div className="rn-callto-action rn-section-gapTop">
+      <div className="container-fluid about-fluidimg-cta">
+        <div className="row">
+          <div className="col-lg-12">
             <div
-              class="bg_image--6 bg_image bg-image-border"
+              className="bg_image--6 bg_image bg-image-border"
               data-black-overlay="7"
             >
-              <div class="row">
-                <div class="col-lg-12">
-                  <div class="call-to-action-wrapper">
+              <div className="row">
+                <div className="col-lg-12">
+                  <div className="call-to-action-wrapper">
                     <h3
                       data-sal="slide-up"
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      Discover rare digital art <br /> and collect NFTs
+                      Explore Blockchain-Powered Real Estate <br /> with Qreal
                     </h3>
                     <p
                       data-sal="slide-up"
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      The NFTs is a one-trick pony that climbed the recent
-                      years. The growth of NFTs is tremendous, and according to
-                      Pymnts.com, the total sales volume{" "}
+                      Transform your real estate experience with secure,
+                      transparent, and efficient blockchain technology. Buy,
+                      sell, and manage properties seamlessly with Qreal.
                     </p>
                     <div
-                      class="callto-action-btn-wrapper"
+                      className="callto-action-btn-wrapper"
                       data-sal="slide-up"
                       data-sal-duration="800"
                       data-sal-delay="150"
                     >
-                      <a href="create.html" class="btn btn-primary btn-large">
-                        Create
+                      <a href="/create" className="btn btn-primary btn-large">
+                        Register Property
                       </a>
                       <a
-                        href="contact.html"
-                        class="btn btn-primary-alta btn-large"
+                        href="/contact"
+                        className="btn btn-primary-alta btn-large"
                       >
                         Contact Us
                       </a>

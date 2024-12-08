@@ -18,12 +18,12 @@ const Collection = ({ category, isLoading }) => {
                 class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-12"
               >
                 <a
-                  href={`/detail?property=${el.productID}`}
+                  href={`/detail?property=${el.productId}`}
                   class="rn-collection-inner-one"
                 >
                   <div class="collection-wrapper">
                     <div class="collection-big-thumbnail">
-                      <img src={el.image} alt="Nft_Profile" />
+                      <img src={el.images} alt="Nft_Profile" />
                     </div>
                     <div class="collenction-small-thumbnail">
                       {[1, 2, 3].map((el, i) => (
@@ -37,7 +37,7 @@ const Collection = ({ category, isLoading }) => {
                       <img src={`/client/client-15.png`} alt="Nft_Profile" />
                     </div>
                     <div class="collection-deg">
-                      <h6 class="title">{el.title}</h6>
+                      <h6 class="title">{el.propertyTitle}</h6>
                       <span class="items">{el.price} MATIC</span>
                     </div>
                   </div>

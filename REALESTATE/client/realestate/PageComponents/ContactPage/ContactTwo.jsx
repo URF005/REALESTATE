@@ -48,10 +48,10 @@ const ContactTwo = () => {
               <div class="inner">
                 <h4 class="title">Contact Phone Number</h4>
                 <p>
-                  <a href="tel:+444555666777">+444 555 666 777</a>
+                  <a href="tel:+444555666777">+923171522517</a>
                 </p>
                 <p>
-                  <a href="tel:+222222222333">+222 222 222 333</a>
+                  <a href="tel:+222222222333">+923165290481</a>
                 </p>
               </div>
             </div>
@@ -83,10 +83,10 @@ const ContactTwo = () => {
               <div class="inner">
                 <h4 class="title">Our Email Address</h4>
                 <p>
-                  <a href="mailto:admin@gmail.com">admin@gmail.com</a>
+                  <a href="mailto:admin@gmail.com">ur476902@gmail.com</a>
                 </p>
                 <p>
-                  <a href="mailto:example@gmail.com">example@gmail.com</a>
+                  <a href="mailto:example@gmail.com">zaibyrider1@gmail.com</a>
                 </p>
               </div>
             </div>
@@ -118,8 +118,8 @@ const ContactTwo = () => {
               <div class="inner">
                 <h4 class="title">Our Location</h4>
                 <p>
-                  5678 Bangla Main Road, cities 580 <br /> GBnagla, example
-                  54786
+                  Residency A.R. Farooqi, HMC Road near Christian Hospital,
+                  Taxila, Post Code 47080.
                 </p>
               </div>
             </div>

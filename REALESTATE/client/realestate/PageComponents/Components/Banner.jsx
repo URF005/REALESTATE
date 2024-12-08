@@ -4,34 +4,28 @@ import Link from "next/link";
 const Banner = () => {
   const category = [
     {
-      name: "Housing",
+      name: "House",
       link: "/housing",
-      worth: 535.566,
     },
     {
       name: "Office",
       link: "/office",
-      worth: 6435.66,
     },
     {
       name: "Farmhouse",
       link: "/farmhouse",
-      worth: 12445.566,
     },
     {
       name: "Rental",
       link: "/rental",
-      worth: 34535.566,
     },
     {
       name: "Commercial",
       link: "/commercial",
-      worth: 553435.566,
     },
     {
-      name: "Country",
+      name: "country",
       link: "/country",
-      worth: 1234535,
     },
   ];
   return (
@@ -83,7 +77,6 @@ const Banner = () => {
                       <h5 class="title">
                         <Link href="#">{el.name}</Link>
                       </h5>
-                      <span>{el.worth} MATIC</span>
                     </div>
                   </div>
                 </div>

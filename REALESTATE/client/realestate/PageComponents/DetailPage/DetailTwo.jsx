@@ -68,7 +68,10 @@ const DetailTwo = ({
                   </button>
                 </div>
 
-                <div className="tab-content rn-pd-content" id="v-pills-tabContent">
+                <div
+                  className="tab-content rn-pd-content"
+                  id="v-pills-tabContent"
+                >
                   <div
                     className="tab-pane fade show active"
                     id="v-pills-home"
@@ -140,7 +143,10 @@ const DetailTwo = ({
                       </div>
                       <div className="top-seller-content">
                         <a href="#">
-                          <p className="name"> {property?.owner?.slice(0, 20)}..</p>
+                          <p className="name">
+                            {" "}
+                            {property?.owner?.slice(0, 20)}..
+                          </p>
                         </a>
                       </div>
                     </div>
@@ -207,7 +213,10 @@ const DetailTwo = ({
                       </button>
                     </div>
                   </nav>
-                  <div className="tab-content rn-bid-content" id="nav-tabContent">
+                  <div
+                    className="tab-content rn-bid-content"
+                    id="nav-tabContent"
+                  >
                     <div
                       className="tab-pane fade"
                       id="nav-home"

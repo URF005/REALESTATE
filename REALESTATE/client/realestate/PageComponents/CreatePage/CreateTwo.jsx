@@ -171,56 +171,6 @@ const CreateTwo = () => {
                   </a>
                 )}
               </div>
-
-              <div className="collection-single-wized banner">
-                <label className="title">Cover Image</label>
-                <div className="create-collection-input feature-image">
-                  <div className="logo-c-image feature">
-                    <img
-                      id="rbtinput2"
-                      src="/profile/cover-04.png"
-                      alt="Profile-NFT"
-                    />
-                    <label for="nipa" title="No File Choosen">
-                      <span className="text-center color-white">
-                        <i className="feather-edit"></i>
-                      </span>
-                    </label>
-                  </div>
-                  <div className="button-area">
-                    <div className="brows-file-wrapper">
-                      <input name="nipa" id="nipa" type="file" />
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="collection-single-wized banner">
-                <label className="title">Featured image</label>
-                <div className="create-collection-input feature-image">
-                  <div className="logo-c-image feature">
-                    <img
-                      id="createfileImage"
-                      src="/profile/cover-03.jpg"
-                      alt="Profile-NFT"
-                    />
-                    <label for="createinputfile" title="No File Choosen">
-                      <span className="text-center color-white">
-                        <i className="feather-edit"></i>
-                      </span>
-                    </label>
-                  </div>
-                  <div className="button-area">
-                    <div className="brows-file-wrapper">
-                      <input
-                        name="createinputfile"
-                        id="createinputfile"
-                        type="file"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div className="col-lg-7">
@@ -350,7 +300,10 @@ const CreateTwo = () => {
                             name="theme-switch"
                             className="theme-switch__input"
                           />
-                          <label for="themeSwitch" className="theme-switch__label">
+                          <label
+                            for="themeSwitch"
+                            className="theme-switch__label"
+                          >
                             <span></span>
                           </label>
                         </div>

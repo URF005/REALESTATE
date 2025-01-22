@@ -59,8 +59,10 @@ export const StateContextProvider = ({ children }) => {
         ],
       });
       console.info("contract call success", data);
+      alert("Listing property successful");
     } catch (err) {
       console.error("contract call failure", err);
+      alert("Listing property failed");
     }
   };
   //2.updateProperty()
@@ -91,49 +93,28 @@ export const StateContextProvider = ({ children }) => {
         ],
       });
       console.log("contract call successfully update", data);
+      alert("Property updated successfully");
     } catch (error) {
       console.error("Error while updating", error);
-    }
-  };
-
-  //3.updatePrice()
-
-  const { mutateAsync: updatePrice, isLoading: updatePriceLoading } =
-    useContractWrite(contract, "updatePrice");
-  const updatePriceFunction = async (form) => {
-    const { productID, price } = form;
-    try {
-      setIsLoading(true);
-      const data = await updatePrice({
-        args: [address, productID, ethers.utils.parseEther(price)],
-      });
-      console.info("contract call successs", data);
-      setIsLoading(false);
-    } catch (error) {
-      console.error("Error while updating price", error);
+      alert("Error while updating");
     }
   };
 
   //4.BuyProperty()
-
-  const { mutateAsync: buyProperty } = useContractWrite(
-    contract,
-    "buyProperty"
-  );
-
   const buyPropertyFunction = async (buying) => {
     const { productID, amount } = buying;
+    const money = ethers.utils.parseEther(amount);
 
     try {
-      setIsLoading(true);
-      const data = await buyProperty({
-        args: [productID, address],
-        value: ethers.utils.parseEther(amount),
+      const data = await contract.call("buyProperty", [productID, address], {
+        value: money.toString(),
       });
       console.info("contract call successs", data);
-      setIsLoading(false);
+      alert("Successfully buy property");
+      window.location.reload();
     } catch (err) {
       console.error("contract call failure", err);
+      alert("Failed to buy property");
     }
   };
 
@@ -151,24 +132,11 @@ export const StateContextProvider = ({ children }) => {
         args: [productID, rating, comment, address],
       });
       console.info("contract call successs", data);
+      alert("Successful add review");
       setIsLoading(false);
     } catch (err) {
       console.error("contract call failure", err);
-    }
-  };
-
-  //6.likeReview()
-
-  const { mutateAsync: likeReview } = useContractWrite(contract, "likeReview");
-  const likeReviewFunction = async (form) => {
-    const { productID, reviewIndex } = form;
-    try {
-      const data = await likeReview({
-        args: [productID, reviewIndex, address],
-      });
-      console.info("Review Liked Successfully", data);
-    } catch (error) {
-      console.error("Review Liked Failed", error);
+      alert("Failed to add review");
     }
   };
 
@@ -200,13 +168,6 @@ export const StateContextProvider = ({ children }) => {
       console.error("Error getting property data", err);
     }
   };
-
-  //8. getHighestRatedProduct()
-
-  const { data: getHighestRatedProduct } = useContractRead(
-    contract,
-    "gethighestRatedProduct"
-  );
 
   //9. getProductReviews()
 
@@ -342,18 +303,18 @@ export const StateContextProvider = ({ children }) => {
         connect,
         createPropertyFunction,
         updatePropertyFunction,
-        updatePriceFunction,
+
         buyPropertyFunction,
         //REVIEW
         addReviewFunction,
-        likeReviewFunction,
+
         getProductReviewsFunction,
         getPropertyFunction,
         getUserPropertiesFunction,
         getUserReviewsFunction,
         totalPropertyFunction,
         totalReviewsFunction,
-        getHighestRatedProduct,
+
         //CONTRACT DATA
         getPropertiesData,
         userBlance,

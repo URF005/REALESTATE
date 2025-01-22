@@ -47,7 +47,6 @@ const Banner = () => {
                     <h5>
                       <a>@theQrealcoders</a>
                     </h5>
-                    <span>Join Membership</span>
                   </div>
                 </div>
               </div>

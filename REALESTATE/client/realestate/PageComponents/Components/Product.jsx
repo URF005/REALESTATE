@@ -118,7 +118,7 @@ const Product = ({ properties }) => {
                 <Link href={`/detail?property=${property.productID}`}>
                   <span className="product-name">{property.propertyTitle}</span>
                 </Link>
-                <span class="latest-bid">Category: {property.category}</span>
+                <span className="latest-bid">Category: {property.category}</span>
 
                 <div className="bid-react-area">
                   <div className="last-bid">{property.price} MATIC</div>

@@ -238,29 +238,7 @@ const create = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-lg-12">
-                    <div className="nuron-information mb--30">
-                      <div className="single-notice-setting">
-                        <div className="input">
-                          <input
-                            type="checkbox"
-                            id="themeSwitch"
-                            name="theme-switch"
-                            className="theme-switch__input"
-                          />
-                          <label
-                            for="themeSwitch"
-                            className="theme-switch__label"
-                          >
-                            <span></span>
-                          </label>
-                        </div>
-                        <div className="content-text">
-                          <p>Explicit & sensitive content</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
                   <div className="col-lg-12">
                     <div className="button-wrapper">
                       <a
